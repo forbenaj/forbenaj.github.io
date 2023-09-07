@@ -1,0 +1,389 @@
+<html>
+<head>
+    
+    <title>Mapas - Benaj</title>
+    
+    <link rel="stylesheet" href="w3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syncopate">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <style>
+        body,h2,h3,h4,h5,h6{
+            font-family: "Montserrat",sans-serif
+        }
+        
+        h1{
+            font-family: "Syncopate";
+            font-weight:bold;
+            text-align:center;
+            font-size:50;
+        }
+        h2{text-align:center;}
+        
+        .rob{
+            font-family: "Roboto Mono",sans-serif
+        }
+        
+        p,strong,ul{
+            font-size:18px;
+        }
+        
+        .w3-content{
+            max-width:50%
+        }
+        
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+        
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {
+            width: 120px;background: #222;
+        }
+        
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {
+            margin-left: 120px
+        }
+        
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px){
+            #main {
+                margin-left: 0
+            }
+            .w3-content{
+                max-width:100%
+            }
+            
+            .w3-display-middle {
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                transform: translate(-15%, -20%);
+             }
+             
+             
+        }
+        
+        body {
+            font-family: "Raleway", sans-serif
+        }
+        
+        body, html {
+            height: 100%
+        }
+        
+        .bgimg {
+          background-color: black;
+          min-height: 100%;
+          background-position: center;
+          background-size: cover
+        }
+
+
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  position:relative;
+  height:30%;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: height .8s ease;
+}
+
+.post {
+  width: 60%;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.collapsible:hover {
+  background-color: #111;
+}
+
+.active {
+  height:45%;
+}
+.active > .holder {
+    width:75%;
+}
+.active > .title {
+    width:25%;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding-left:20px;
+  padding-right:20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+
+.holder{
+    padding:20px;
+    height:100%;
+    overflow:hidden;
+    width:45%;
+    display:inline-block;
+    transition: width .8s ease;
+}
+
+.collapsible:hover .holder {
+    width:75%;
+}
+
+.thumbnail{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.title{
+    padding:20px;
+    width:45%;
+    height:100%;
+    overflow:hidden;
+    float:right;
+    display:inline-block;
+    transition: width .8s ease;
+}
+
+.titletext{
+  text-align: center;
+}
+
+.collapsible:hover .title {
+    width:25%;
+}
+
+
+.compatible{
+    position:absolute;
+    bottom:5%;
+    right:5%;
+    width:4%;
+}
+.icon{
+    width:100%;
+}
+
+
+
+
+ @media only screen and (max-width: 600px){
+    
+    .post {
+      width: 100%;
+    }
+    
+    .thumbnail{
+      height:120%;
+    }
+ }
+
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+    </style>
+    
+</head>
+
+
+<body>
+
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+ 
+   
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="http://cosas.ar">Inicio</a>
+      <a href="http://cosas.ar/TRONIX">TRONIX</a>
+      <a href="http://cosas.ar/mapas">Mapas</a>
+      <a href="#">Botón</a>
+    </div>
+ 
+    <button class="w3-button w3-green w3-xlarge"  onclick="openNav()">&#9776;</button>
+    <div id="main">
+        
+        <h1>Mapas</h1>
+        <h2>para Goldsource</h2>
+        <hr>
+        <br>
+        <br>
+        
+        <div class="post">
+        
+            <div  class="collapsible">
+                <div class="holder"><img src="inten/inten3.png" class="thumbnail"></div>
+                <div class="title">
+                    <h3 class="titletext">Plaza de la Intendencia</h3>
+                    <h4 class="titletext">2010</h4>
+                </div>
+                <div class="compatible">
+                    <img src="cstrike.ico" class="icon">
+                </div>
+            </div>
+            
+            <div class="content">
+                <br>
+                <p>La inten de Córdoba del 2012, con La Muni al frente y algunos túneles secretos.</p>
+                <p>Disponible para Counter-Strike 1.6</p>
+                <br>
+                <p>Los paquetes de texturas personalizados están incluidos en el archivo, pero pueden descargarse en la página del mapa.</p>
+                <a href="inten/CS_inten111.bsp" class="w3-btn w3-green w3-hover-pink" download>Descargar</a>
+                <a href="inten" class="w3-btn w3-blue w3-hover-yellow" style="float:right;">Página del mapa</a>
+                <br>
+                <br>
+            </div>
+            
+            
+        </div>
+        
+        
+        <div class="post">
+        
+            <div  class="collapsible">
+                <div class="holder"><img src="alberdi/alberdi1.png" class="thumbnail"></div>
+                <div class="title">
+                    <h3 class="titletext">Escuela Normal Alberdi</h3>
+                    <h4 class="titletext">IPEM 269 Dr. César Milstein</h4>
+                    <h4 class="titletext">2011</h4>
+                </div>
+                <div class="compatible">
+                    <img src="cstrike.ico" class="icon">
+                </div>
+            </div>
+            
+            <div class="content">
+                <br>
+                <p>Edificio donde funcionan los colegios Alberdi y Dr. César Milstein.</p>
+                <p>Disponible para Counter-Strike 1.6</p>
+                <br>
+                <p>El mapa usa las texturas de cs_havana.wad, que debería estar incluída en todas las versiones de Counter-Strike.</p>
+                <a href="alberdi/Alberdi_v01.bsp" class="w3-btn w3-green w3-hover-pink" download>Descargar</a>
+                <a href="alberdi" class="w3-btn w3-blue w3-hover-yellow" style="float:right;">Página del mapa</a>
+                <br>
+                <br>
+            </div>
+            
+            
+        </div>
+        
+</div>
+</div>
+<script>
+
+$(document).ready(function(){
+
+  $('!disclaimer').remove();
+
+});
+
+
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling
+
+    
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+        
+    /*var title = this.firstChild;
+    if (title.style.width){
+      title.style.width = 0;
+    } else {
+      title.style.width = 100
+    }
+    */
+  });
+}
+
+</script>
+</body>
+</html>

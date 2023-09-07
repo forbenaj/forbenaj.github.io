@@ -1,0 +1,300 @@
+        html {
+          scroll-behavior: smooth;
+        }
+        body,h2,h3,h4,h5,h6{
+            font-family: "Montserrat",sans-serif
+        }
+        
+        h1{
+            font-family: "Syncopate";
+            font-weight:bold;
+            text-align:center;
+            font-size:50;
+        }
+        h2{text-align:center;}
+        
+        .rob{
+            font-family: "Roboto Mono",sans-serif
+        }
+        
+        p,strong,ul{
+            font-size:18px;
+        }
+        
+        .w3-content{
+            max-width:50%;
+            padding-top:52px;
+        }
+        
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+        
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {
+            width: 120px;background: #222;
+        }
+        
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {
+            margin-left: 120px
+        }
+        
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px){
+            #main {
+                margin-left: 0
+            }
+            .w3-content{
+                max-width:100%
+            }
+            
+            .w3-display-middle {
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                transform: translate(-15%, -20%);
+             }
+             
+             
+             
+            h1{
+                font-size:35;
+            }
+             
+             
+        }
+        
+        body {
+            font-family: "Raleway", sans-serif
+        }
+        
+        body, html {
+            height: 100%
+        }
+        
+        .bgimg {
+          background-color: black;
+          min-height: 100%;
+          background-position: center;
+          background-size: cover
+        }
+
+
+
+
+
+.compatible{
+    position:absolute;
+    bottom:5%;
+    right:5%;
+    width:4%;
+}
+.icon{
+    width:100%;
+}
+
+
+
+
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  z-index:3;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+  padding-bottom:20px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+.instrucciones{
+    padding:15px;
+    border:1px solid grey;
+    border-radius:15px;
+}
+
+.ant,
+.sig {
+    padding:24px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+  cursor: pointer;
+  position: fixed;
+  height:100%;
+  opacity:50%;
+  color: white;
+  font-weight: bold;
+  font-size: 80px;
+  user-select: none;
+  text-decoration:none;
+  -webkit-user-select: none;
+  /*z-index:1;*/
+}
+
+.ant {
+    left:0;
+}
+.sig {
+  right: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.ant:hover,
+.sig:hover {
+      opacity:100%;
+      background-color:#111;
+}
+
+@media only screen and (max-width: 600px){
+             
+    .ant,
+    .sig{
+  font-weight: bold;
+  font-size: 50px;
+    padding:12px;
+  height:100px;
+  top:50vh;
+    }
+    
+
+}
+
+.w3-green{
+    z-index:2;
+}

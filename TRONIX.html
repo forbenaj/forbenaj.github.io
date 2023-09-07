@@ -1,0 +1,1187 @@
+<html>
+<head>
+    
+    <title>TRONIX - Benaj</title>
+    
+    <link rel="stylesheet" href="w3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syncopate">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <style>
+        body,h2,h3,h4,h5,h6{
+            font-family: "Montserrat",sans-serif
+        }
+        
+        h1{
+            font-family: "Syncopate";
+            font-weight:bold;
+            text-align:center;
+            font-size:50;
+        }
+        .rob{
+            font-family: "Roboto Mono",sans-serif
+        }
+        
+        p,strong,ul{
+            font-size:18px;
+        }
+        
+        .w3-content{
+            max-width:50%
+        }
+        
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+        
+        /* Set the width of the sidebar to 120px */
+        .w3-sidebar {
+            width: 120px;background: #222;
+        }
+        
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {
+            margin-left: 120px
+        }
+        
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px){
+            #main {
+                margin-left: 0
+            }
+            .w3-content{
+                max-width:100%
+            }
+            
+            .w3-display-middle {
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                transform: translate(-15%, -20%);
+             }
+             
+             
+        }
+        
+        body {
+            font-family: "Raleway", sans-serif
+        }
+        
+        body, html {
+            height: 100%
+        }
+        
+        .bgimg {
+          background-color: black;
+          min-height: 100%;
+          background-position: center;
+          background-size: cover
+        }
+
+
+
+.ex1container {
+    position:relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 50%;
+}
+.ex2container {
+    position:relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+}
+.ex3container {
+    position:relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+}
+.ex4container {
+    position:relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+}
+table{
+    color:white
+}
+
+
+
+
+            /*     _   _  _ ___ __  __   _ _____ ___ ___  _  _ ___ 
+               /_\ | \| |_ _|  \/  | /_\_   _|_ _/ _ \| \| / __|
+              / _ \| .` || || |\/| |/ _ \| |  | | (_) | .` \__ \
+             /_/ \_\_|\_|___|_|  |_/_/ \_\_| |___\___/|_|\_|___/
+                                                                 */
+
+
+
+
+                            /* Example 1 */
+
+
+@keyframes ex1-Card1-anim{
+    0%{top: 5%; left: 80%;}
+    10%{top: 5%; left: 80%;transform: rotate(0deg)}
+    40%{top: 15%; left: 50%;transform: rotate(-90deg); filter:grayscale(0%);}
+    70%{top: 15%; left: 50%;transform: rotate(-90deg); filter:grayscale(70%);}
+    100%{top: 15%; left: 50%;transform: rotate(-90deg); filter:grayscale(70%);}
+}
+@keyframes ex1-Card2-anim{
+    0%{top: 5%; left: 20%;}
+    15%{top: 5%; left: 20%;transform: rotate(0deg)}
+    45%{top: 15%; left: 36.4%;transform: rotate(90deg); filter:grayscale(0%);}
+    70%{top: 15%; left: 36.4%;transform: rotate(90deg); filter:grayscale(70%);}
+    100%{top: 15%; left: 36.4%;transform: rotate(90deg); filter:grayscale(70%);}
+}
+@keyframes ex1-Card3-anim{
+    0%{top: 50%; left: 10%;}
+    20%{top: 50%; left: 10%;transform: rotate(0deg)}
+    45%{top: 35%; left: 36.4%;transform: rotate(90deg); filter:grayscale(0%);}
+    70%{top: 35%; left: 36.4%;transform: rotate(90deg); filter:grayscale(70%);}
+    100%{top: 35%; left: 36.4%;transform: rotate(90deg); filter:grayscale(70%);}
+}
+@keyframes ex1-Card4-anim{
+    0%{top: 40%; left: 5%;}
+    25%{top: 40%; left: 5%;transform: rotate(0deg)}
+    50%{top: 35%; left: 50%;transform: rotate(-90deg); filter:grayscale(0%);}
+    70%{top: 35%; left: 50%;transform: rotate(-90deg); filter:grayscale(70%);}
+    100%{top: 35%; left: 50%;transform: rotate(-90deg); filter:grayscale(70%);}
+}
+
+@keyframes ex1-Lines-anim{
+    0%{filter: opacity(0%)}
+    50%{filter: opacity(0%)}
+    70%{filter:opacity(100%)}
+    85%{filter: opacity(0%)}
+    100%{filter:opacity(100%)}
+}
+
+
+
+
+                                /* Example 2 */
+
+
+/*Green Example*/
+
+
+@keyframes ex2G-Card1-anim{
+    0%{top:10%;left:10%;filter: opacity(100%) grayscale(0%);transform: rotate(180deg)}
+    25%{top:10%;left:10%;filter: opacity(100%) grayscale(0%);transform: rotate(180deg)}
+    35%{top:10%;left:10%;filter:opacity(50%) grayscale(50%);transform: rotate(180deg)}
+    42%{top:10%;left:10%;filter: opacity(50%) grayscale(50%);transform: rotate(180deg)}
+    50%{top:10%;left:10%;filter:opacity(50%) grayscale(50%);transform: rotate(180deg)}
+    58%{top:10%;left:10%;filter: opacity(100%) grayscale(0%);transform: rotate(0deg)scaleX(0.5) scaleY(0.5)}
+    70%{top:70%;left:5%;filter: opacity(100%) grayscale(0%);transform: rotate(0deg)scaleX(0.5) scaleY(0.5)}
+    100%{top:70%;left:5%;filter: opacity(100%) grayscale(0%);transform: rotate(0deg)scaleX(0.5) scaleY(0.5)}
+}
+@keyframes ex2G-Card2-anim{
+    0%{top:10%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleY(-1)}
+    25%{top:10%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleY(-1)}
+    35%{top:10%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    42%{top:10%;left:40%;filter: opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    50%{top:10%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    58%{top:10%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    70%{top:70%;left:8%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    100%{top:70%;left:8%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+}
+@keyframes ex2G-Card3-anim{
+    0%{top:50.8%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleX(-1)}
+    25%{top:50.8%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleX(-1)}
+    35%{top:50.8%;left:10%;filter:opacity(50%) grayscale(50%);transform: scaleX(-1)}
+    42%{top:50.8%;left:10%;filter: opacity(50%) grayscale(50%);transform: scaleX(-1)}
+    50%{top:50.8%;left:10%;filter:opacity(50%) grayscale(50%);transform: scaleX(-1)}
+    58%{top:50.8%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    70%{top:70%;left:11%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    100%{top:70%;left:11%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+}
+@keyframes ex2G-Card4-anim{
+    0%{top:50.8%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(1) scaleY(1)}
+    25%{top:50.8%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(1) scaleY(1)}
+    35%{top:50.8%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    42%{top:50.8%;left:40%;filter: opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    50%{top:50.8%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    58%{top:50.8%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    70%{top:70%;left:14%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    100%{top:70%;left:14%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+}
+
+@keyframes ex2G-Blossom-anim{
+    0%{filter: opacity(0%)}
+    60%{filter: opacity(0%)}
+    70%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+
+/*Pink Example*/
+
+@keyframes ex2P-Card1-anim{
+    0%{top:10%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleX(1) scaleY(1)}
+    25%{top:10%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleX(1) scaleY(1)}
+    35%{top:10%;left:10%;filter:opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    42%{top:10%;left:10%;filter: opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    50%{top:10%;left:10%;filter:opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    58%{top:10%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    70%{top:5%;left:80%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    100%{top:5%;left:80%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+}
+@keyframes ex2P-Card2-anim{
+    0%{top:10%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleY(-1)}
+    25%{top:10%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleY(-1)}
+    35%{top:10%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    42%{top:10%;left:40%;filter: opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    50%{top:10%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    58%{top:10%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(-0.5)}
+    70%{top:5%;left:77%;filter: opacity(100%) grayscale(0%);transform:  scaleX(0.5)scaleY(-0.5)}
+    100%{top:5%;left:77%;filter: opacity(100%) grayscale(0%);transform:  scaleX(0.5)scaleY(-0.5)}
+}
+@keyframes ex2P-Card3-anim{
+    0%{top:50.8%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleY(-1)}
+    25%{top:50.8%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleY(-1)}
+    35%{top:50.8%;left:10%;filter:opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    42%{top:50.8%;left:10%;filter: opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    50%{top:50.8%;left:10%;filter:opacity(50%) grayscale(50%);transform: scaleY(-1)}
+    58%{top:50.8%;left:10%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(-0.5)}
+    70%{top:5%;left:74%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(-0.5)}
+    100%{top:5%;left:74%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(-0.5)}
+}
+@keyframes ex2P-Card4-anim{
+    0%{top:50.8%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(1) scaleY(1)}
+    25%{top:50.8%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(1) scaleY(1)}
+    35%{top:50.8%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    42%{top:50.8%;left:40%;filter: opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    50%{top:50.8%;left:40%;filter:opacity(50%) grayscale(50%);transform: scaleX(1) scaleY(1)}
+    58%{top:50.8%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    70%{top:5%;left:71%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+    100%{top:5%;left:71%;filter: opacity(100%) grayscale(0%);transform: scaleX(0.5) scaleY(0.5)}
+}
+
+@keyframes ex2P-Blossom-anim{
+    0%{filter: opacity(0%)}
+    60%{filter: opacity(0%)}
+    70%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+
+
+/*Both*/
+
+@keyframes ex2-Lines-anim{
+    0%{filter: opacity(0%)}
+    25%{filter: opacity(0%)}
+    30%{filter:opacity(100%)}
+    40%{filter: opacity(0%)}
+    45%{filter:opacity(100%)}
+    60%{filter:opacity(0)}
+    100%{filter:opacity(0)}
+}
+
+
+
+                                /*Example 3*/
+
+/*Example A*/
+
+@keyframes ex3A-Card1-anim{
+    0%{top:20%;left:10%;filter: opacity(100%) grayscale(0%);transform:rotate(90deg) scaleX(-1)}
+    25%{top:20%;left:10%;filter: opacity(100%) grayscale(0%);transform:rotate(90deg) scaleX(-1)}
+    35%{top:20%;left:10%;filter: opacity(50%) grayscale(0%);transform:rotate(90deg) scaleX(-1)}
+    50%{top:20%;left:10%;filter: opacity(50%) grayscale(0%);transform:rotate(90deg) scaleX(-1)}
+    58%{top:30%;left:5%;filter: opacity(100%) grayscale(0%);transform:rotate(0deg) scaleX(-1)}
+    70%{top:70%;left:5%;transform:rotate(0deg) scaleX(-0.5) scaleY(0.5)}
+    100%{top:70%;left:5%;transform:rotate(0deg) scaleX(-0.5) scaleY(0.5)}
+}
+@keyframes ex3A-Card2-anim{
+    0%{top:20%;left:50%;filter: opacity(100%) grayscale(0%);transform:rotate(-90deg)}
+    25%{top:20%;left:50%;filter: opacity(100%) grayscale(0%);transform:rotate(-90deg)}
+    35%{top:20%;left:50%;filter: opacity(50%) grayscale(0%);transform:rotate(-90deg)}
+    50%{top:20%;left:50%;filter: opacity(50%) grayscale(0%);transform:rotate(-90deg)}
+    58%{top:20%;left:50%;filter: opacity(100%) grayscale(0%);transform:rotate(-90deg)}
+    70%{top:20%;left:50%;filter: opacity(100%) grayscale(0%);transform:rotate(-90deg)}
+    82%{top:5%;left:60%;transform:rotate(0deg) scaleX(0.5) scaleY(0.5)}
+    100%{top:5%;left:60%;transform:rotate(0deg) scaleX(0.5) scaleY(0.5)}
+}
+@keyframes ex3A-Card3-anim{
+    0%{top:50%;left:10%;filter: opacity(100%) grayscale(0%);transform:rotate(90deg)}
+    25%{top:50%;left:10%;filter: opacity(100%) grayscale(0%);transform:rotate(90deg)}
+    35%{top:50%;left:10%;filter: opacity(50%) grayscale(0%);transform:rotate(90deg)}
+    52%{top:50%;left:10%;filter: opacity(50%) grayscale(0%);transform:rotate(90deg)}
+    60%{top:30%;left:10%;filter: opacity(100) grayscale(0%);transform:rotate(0deg)}
+    72%{top:72%;left:6%;transform:rotate(0deg) scaleX(0.5) scaleY(0.5)}
+    100%{top:72%;left:6%;transform:rotate(0deg) scaleX(0.5) scaleY(0.5)}
+}
+@keyframes ex3A-Card4-anim{
+    0%{top:50%;left:50%;filter: opacity(100%) grayscale(0%);transform:rotate(90deg) scaleY(-1)}
+    25%{top:50%;left:50%;filter: opacity(100%) grayscale(0%);transform:rotate(90deg) scaleY(-1)}
+    35%{top:50%;left:50%;filter: opacity(50%) grayscale(0%);transform:rotate(90deg) scaleY(-1)}
+    54%{top:50%;left:50%;filter: opacity(50%) grayscale(0%);transform:rotate(90deg) scaleY(-1)}
+    62%{top:30%;left:15%;filter: opacity(100%) grayscale(0%);transform:rotate(0deg) scaleY(-1)}
+    74%{top:74%;left:7%;transform:rotate(0deg) scaleY(-0.5) scaleX(0.5)}
+    100%{top:74%;left:7%;transform:rotate(0deg) scaleY(-0.5) scaleX(0.5)}
+}
+@keyframes ex3A-Lines-anim{
+    0%{filter: opacity(0%)}
+    25%{filter: opacity(0%)}
+    30%{filter:opacity(100%)}
+    40%{filter: opacity(0%)}
+    45%{filter:opacity(100%)}
+    60%{filter:opacity(0)}
+    100%{filter:opacity(0)}
+}
+
+
+@keyframes ex3GA-Blossom-anim{
+    0%{filter: opacity(0%)}
+    64%{filter: opacity(0%)}
+    74%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+@keyframes ex3PA-Blossom-anim{
+    0%{filter: opacity(0%)}
+    76%{filter: opacity(0%)}
+    86%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+
+
+
+                                /*Example 3*/
+                                
+/*Example B*/
+
+@keyframes ex3B-Card1-anim{
+    0%{top:5%;left:20%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    20%{top:5%;left:20%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    30%{top:5%;left:20%;filter: opacity(50%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    45%{top:5%;left:20%;filter: opacity(50%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    75%{top:5%;left:20%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    80%{top:5%;left:60%;transform: scaleX(0.75)scaleY(0.75)}
+    100%{top:5%;left:60%;transform: scaleX(0.75)scaleY(0.75)}
+}
+@keyframes ex3B-Card2-anim{
+    0%{top:5%;left:40%;filter: opacity(100%) grayscale(0%);transform:scaleY(-1)}
+    20%{top:5%;left:40%;filter: opacity(100%) grayscale(0%);transform:scaleY(-1)}
+    30%{top:5%;left:40%;filter: opacity(50%) grayscale(0%);transform:scaleY(-1)}
+    45%{top:5%;left:40%;filter: opacity(50%) grayscale(0%);transform:scaleY(-1)}
+    55%{top:5%;left:40%;filter: opacity(100%) grayscale(0%);transform:scaleY(-1)}
+    65%{top:53%;left:34%;filter: opacity(100%) grayscale(0%);transform:scaleY(-1)}
+    69%{top:70%;left:5%;transform:scaleY(-0.75)scaleX(0.75)}
+    100%{top:70%;left:5%;transform:scaleY(-0.75)scaleX(0.75)}
+}
+@keyframes ex3B-Card3-anim{
+    0%{top:32%;left:20%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    20%{top:32%;left:20%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    30%{top:32%;left:20%;filter: opacity(50%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    45%{top:32%;left:20%;filter: opacity(50%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    56%{top:32%;left:20%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    66%{top:56%;left:37%;transform: scaleX(1)scaleY(1)}
+    70%{top:72%;left:6%;transform: scaleX(0.75)scaleY(0.75)}
+    100%{top:72%;left:6%;transform: scaleX(0.75)scaleY(0.75)}
+}
+@keyframes ex3B-Card4-anim{
+    0%{top:32%;left:40%;filter: opacity(100%) grayscale(0%);transform:rotate(180deg)}
+    20%{top:32%;left:40%;filter: opacity(100%) grayscale(0%);transform:rotate(180deg)}
+    30%{top:32%;left:40%;filter: opacity(50%) grayscale(0%);transform:rotate(180deg)}
+    45%{top:32%;left:40%;filter: opacity(50%) grayscale(0%);transform:rotate(180deg)}
+    57%{top:32%;left:40%;filter: opacity(100%) grayscale(0%);transform:rotate(180deg)}
+    67%{top:59%;left:40%;transform:rotate(180deg)}
+    71%{top:74%;left:7%;transform:rotate(180deg) scaleX(0.75)scaleY(0.75)}
+    100%{top:74%;left:7%;transform:rotate(180deg) scaleX(0.75)scaleY(0.75)}
+}
+@keyframes ex3B-Card5-anim{
+    0%{top:59%;left:20%;filter: opacity(100%) grayscale(0%);transform:scaleX(-1)}
+    20%{top:59%;left:20%;filter: opacity(100%) grayscale(0%);transform:scaleX(-1)}
+    30%{top:59%;left:20%;filter: opacity(50%) grayscale(0%);transform:scaleX(-1)}
+    45%{top:59%;left:20%;filter: opacity(50%) grayscale(0%);transform:scaleX(-1)}
+    58%{top:59%;left:20%;filter: opacity(100%) grayscale(0%);transform:scaleX(-1)}
+    68%{top:62%;left:43%;transform:scaleX(-0.75) scaleY(0.75)}
+    72%{top:72%;left:6%;transform:scaleX(-0.75) scaleY(0.75)}
+    100%{top:72%;left:6%;transform:scaleX(-0.75) scaleY(0.75)}
+}
+@keyframes ex3B-Card6-anim{
+    0%{top:59%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    20%{top:59%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    30%{top:59%;left:40%;filter: opacity(50%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    45%{top:59%;left:40%;filter: opacity(50%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    59%{top:59%;left:40%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    69%{top:65%;left:46%;transform: scaleX(1)scaleY(1)}
+    73%{top:74%;left:7%;transform: scaleX(0.75)scaleY(0.75)}
+    100%{top:74%;left:7%;transform: scaleX(0.75)scaleY(0.75)}
+}
+@keyframes ex3B-Lines-anim{
+    0%{filter: opacity(0%)}
+    25%{filter: opacity(0%)}
+    30%{filter:opacity(100%)}
+    40%{filter: opacity(0%)}
+    45%{filter:opacity(100%)}
+    60%{filter:opacity(0)}
+    100%{filter:opacity(0)}
+}
+
+
+@keyframes ex3GB-Blossom-anim{
+    0%{filter: opacity(0%)}
+    75%{filter: opacity(0%)}
+    85%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+@keyframes ex3PB-Blossom-anim{
+    0%{filter: opacity(0%)}
+    80%{filter: opacity(0%)}
+    90%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+
+
+                                /*Example 4*/
+                          
+
+@keyframes ex4-Card1-anim{
+    0%{top:15%;left:5%;filter: opacity(60%) grayscale(0%);transform:scaleY(1)}
+    20%{top:15%;left:5%;filter: opacity(60%) grayscale(0%);transform:scaleY(1)}
+    30%{top:15%;left:5%;filter: opacity(30%) grayscale(0%);transform:scaleY(1)}
+    45%{top:15%;left:5%;filter: opacity(30%) grayscale(0%);transform:scaleY(1)}
+    55%{top:15%;left:5%;filter: opacity(60%) grayscale(0%);transform:scaleY(1)}
+    65%{top:53%;left:34%;filter: opacity(100%) grayscale(0%);transform:scaleY(1)}
+    69%{top:70%;left:5%;transform:scaleY(0.75)scaleX(0.75)}
+    100%{top:70%;left:5%;transform:scaleY(0.75)scaleX(0.75)}
+}
+@keyframes ex4-Card2-anim{
+    0%{top:15%;left:25%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(1)rotate(180deg)}
+    20%{top:15%;left:25%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(1)rotate(180deg)}
+    30%{top:15%;left:25%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(1)rotate(180deg)}
+    45%{top:15%;left:25%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(1)rotate(180deg)}
+    75%{top:15%;left:25%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)rotate(180deg)}
+    80%{top:5%;left:60%;transform: scaleX(0.75)scaleY(0.75)rotate(180deg)}
+    100%{top:5%;left:60%;transform: scaleX(0.75)scaleY(0.75)rotate(180deg)}
+}
+@keyframes ex4-Card3-anim{
+    0%{top:15%;left:45%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    20%{top:15%;left:45%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    30%{top:15%;left:45%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    45%{top:15%;left:45%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    56%{top:15%;left:45%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    66%{top:56%;left:37%;transform: scaleX(1)scaleY(1)}
+    70%{top:72%;left:6%;transform: scaleX(0.75)scaleY(0.75)}
+    100%{top:72%;left:6%;transform: scaleX(0.75)scaleY(0.75)}
+}
+@keyframes ex4-Card4-anim{
+    0%{top:15%;left:65%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(-1)}
+    20%{top:15%;left:65%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(-1)}
+    30%{top:15%;left:65%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(-1)}
+    45%{top:15%;left:65%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(-1)}
+    57%{top:15%;left:65%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(-1)}
+    67%{top:59%;left:40%;transform: scaleX(1)scaleY(-1)}
+    71%{top:74%;left:7%;transform: scaleX(0.75)scaleY(-0.75)}
+    100%{top:74%;left:7%;transform: scaleX(0.75)scaleY(-0.75)}
+}
+@keyframes ex4-Card5-anim{
+    0%{top:43%;left:5%;filter: opacity(60%) grayscale(0%);transform:scaleX(-1)}
+    20%{top:43%;left:5%;filter: opacity(60%) grayscale(0%);transform:scaleX(-1)}
+    30%{top:43%;left:5%;filter: opacity(30%) grayscale(0%);transform:scaleX(-1)}
+    45%{top:43%;left:5%;filter: opacity(30%) grayscale(0%);transform:scaleX(-1)}
+    58%{top:43%;left:5%;filter: opacity(100%) grayscale(0%);transform:scaleX(-1)}
+    68%{top:62%;left:43%;transform:scaleX(-0.75) scaleY(0.75)}
+    72%{top:72%;left:6%;transform:scaleX(-0.75) scaleY(0.75)}
+    100%{top:72%;left:6%;transform:scaleX(-0.75) scaleY(0.75)}
+}
+@keyframes ex4-Card6-anim{
+    0%{top:43%;left:25%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    20%{top:43%;left:25%;filter: opacity(60%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    30%{top:43%;left:25%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    45%{top:43%;left:25%;filter: opacity(30%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    59%{top:43%;left:25%;filter: opacity(100%) grayscale(0%);transform: scaleX(1)scaleY(1)}
+    69%{top:65%;left:25%;transform: scaleX(1)scaleY(1)}
+    73%{top:74%;left:7%;transform: scaleX(0.75)scaleY(0.75)}
+    100%{top:74%;left:7%;transform: scaleX(0.75)scaleY(0.75)}
+}
+@keyframes ex4-Card7-anim{
+    0%{top:43%;left:65%;filter: opacity(60%) grayscale(0%);transform: scaleX(-1)scaleY(1)}
+    20%{top:43%;left:65%;filter: opacity(60%) grayscale(0%);transform: scaleX(-1)scaleY(1)}
+    30%{top:43%;left:65%;filter: opacity(30%) grayscale(0%);transform: scaleX(-1)scaleY(1)}
+    45%{top:43%;left:65%;filter: opacity(30%) grayscale(0%);transform: scaleX(-1)scaleY(1)}
+    59%{top:43%;left:65%;filter: opacity(100%) grayscale(0%);transform: scaleX(-1)scaleY(1)}
+    69%{top:65%;left:46%;transform: scaleX(-1)scaleY(1)}
+    73%{top:74%;left:7%;transform: scaleX(-0.75)scaleY(0.75)}
+    100%{top:74%;left:7%;transform: scaleX(-0.75)scaleY(0.75)}
+}
+@keyframes ex4-Lines-anim{
+    0%{filter: opacity(0%)}
+    25%{filter: opacity(0%)}
+    30%{filter:opacity(100%)}
+    40%{filter: opacity(0%)}
+    45%{filter:opacity(100%)}
+    60%{filter:opacity(0)}
+    100%{filter:opacity(0)}
+}
+
+
+@keyframes ex4G-Blossom-anim{
+    0%{filter: opacity(0%)}
+    75%{filter: opacity(0%)}
+    85%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+@keyframes ex4P-Blossom-anim{
+    0%{filter: opacity(0%)}
+    80%{filter: opacity(0%)}
+    90%{filter: opacity(100%)}
+    100%{filter: opacity(0%)}
+}
+
+
+
+.ex1cards,.ex2cards,.ex3Acards,.ex3Bcards,.ex4cards {
+  border: 1px solid grey;
+}
+
+
+
+
+
+                        /*   _____ _         _      
+                          / ____| |       | |     
+                         | (___ | |_ _   _| | ___ 
+                          \___ \| __| | | | |/ _ \
+                          ____) | |_| |_| | |  __/
+                         |_____/ \__|\__, |_|\___|
+                                      __/ |       
+                                     |___/  */
+
+
+                                /*Example 1*/
+
+.ex1cards,.ex1lines {
+    position: absolute;
+    animation-duration:3s;
+    animation-iteration-count: infinite;
+    animation-direction:alternate;
+    width: 10%;
+}
+
+.ex1card1 {animation-name:ex1-Card1-anim;}
+.ex1card2 {animation-name:ex1-Card2-anim;}
+.ex1card3 {animation-name:ex1-Card3-anim;}
+.ex1card4 {animation-name:ex1-Card4-anim;}
+
+.ex1lines{animation-name:ex1-Lines-anim;}
+
+.ex1line1{top: 15%; left: 50%;transform: rotate(-90deg);animation-delay:-0.3s}
+.ex1line2{top: 15%; left: 36.4%;transform: rotate(90deg) scaleX(-1);animation-delay:-0.2s}
+.ex1line3{top: 35%; left: 36.4%;transform: rotate(90deg);animation-delay:-0.1s}
+.ex1line4{top: 35%; left: 50%;transform: rotate(-90deg) scaleX(-1);animation-delay:0s}
+
+
+
+                                /*Example 2*/
+
+.ex2cards {
+    position: absolute;
+    animation-duration:6s;
+    animation-iteration-count: infinite;
+    width: 30%;
+}
+.ex2lines {
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex2-Lines-anim;
+    animation-iteration-count: infinite;
+    width: 30%;
+}
+
+.ex2Gcard1{animation-name:ex2G-Card1-anim;animation-delay:-0.3s}
+.ex2Gcard2{animation-name:ex2G-Card2-anim;animation-delay:-0.2s}
+.ex2Gcard3{animation-name:ex2G-Card3-anim;animation-delay:0s}
+.ex2Gcard4{animation-name:ex2G-Card4-anim;animation-delay:-0.1s}
+
+.ex2Pcard1{animation-name:ex2P-Card1-anim;animation-delay:-0.3s}
+.ex2Pcard2{animation-name:ex2P-Card2-anim;animation-delay:-0.2s}
+.ex2Pcard3{animation-name:ex2P-Card3-anim;animation-delay:0s}
+.ex2Pcard4{animation-name:ex2P-Card4-anim;animation-delay:-0.1s}
+
+.ex2line1 {top:10%;left:10%;transform: rotate(180deg);animation-delay:-0.3s}
+.ex2line2 {top:10%;left:40%;transform: scaleY(-1);animation-delay:-0.2s}
+.ex2line3 {top:50.8%;left:10%;transform: scaleX(-1);animation-delay:0s}
+.ex2line4 {top:50.8%;left:40%;animation-delay:-0.1s}
+
+.ex2Gblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex2G-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:65%;left:0%
+}
+
+.ex2Pblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex2P-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:0%;left:65%
+}
+
+
+
+
+
+                                /*Example 3*/
+
+
+/*Example A*/
+
+.ex3Acards{
+    position: absolute;
+    animation-duration:6s;
+    animation-iteration-count: infinite;
+    width: 30%;
+}
+.ex3Alines {
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex3A-Lines-anim;
+    animation-iteration-count: infinite;
+    width: 30%;
+}
+
+
+.ex3GAblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex3GA-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:66%;left:-3%
+}
+
+.ex3PAblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex3PA-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:0%;left:51%
+}
+
+
+.ex3Acard1 {animation-name:ex3A-Card1-anim;}
+.ex3Acard2 {animation-name:ex3A-Card2-anim;}
+.ex3Acard3 {animation-name:ex3A-Card3-anim;}
+.ex3Acard4 {animation-name:ex3A-Card4-anim;}
+
+
+.ex3Aline1{top:20%;left:10%;transform:rotate(90deg) scaleX(-1);animation-delay:-0.3s}
+.ex3Aline2{top:20%;left:50%;transform:rotate(-90deg);animation-delay:-0.2s}
+.ex3Aline3{top:50%;left:10%;transform:rotate(90deg);animation-delay:0s}
+.ex3Aline4{top:50%;left:50%;transform:rotate(90deg) scaleY(-1);animation-delay:-0.1s}
+
+/*Example B*/
+
+.ex3Bcards{
+    position: absolute;
+    animation-duration:6s;
+    animation-iteration-count: infinite;
+    width: 20%;
+}
+.ex3Blines {
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex3B-Lines-anim;
+    animation-iteration-count: infinite;
+    width: 20%;
+}
+
+.ex3GBblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex3GB-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:62%;left:-8%
+}
+
+.ex3PBblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex3PB-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:-8%;left:46%
+}
+
+.ex3Bcard1 {animation-name:ex3B-Card1-anim;}
+.ex3Bcard2 {animation-name:ex3B-Card2-anim;}
+.ex3Bcard3 {animation-name:ex3B-Card3-anim;}
+.ex3Bcard4 {animation-name:ex3B-Card4-anim;}
+.ex3Bcard5 {animation-name:ex3B-Card5-anim;}
+.ex3Bcard6 {animation-name:ex3B-Card6-anim;}
+
+
+.ex3Bline1{top:5%;left:20%;transform:rotate(180deg);animation-delay:-0.3s}
+.ex3Bline2{top:5%;left:40%;transform:scaleY(-1);animation-delay:-0.2s}
+.ex3Bline3{top:32%;left:20%;animation-delay:0s}
+.ex3Bline4{top:32%;left:40%;animation-delay:-0.1s}
+.ex3Bline5{top:59%;left:20%;transform:scaleX(-1);animation-delay:0s}
+.ex3Bline6{top:59%;left:40%;animation-delay:-0.1s}
+
+
+
+
+
+                                /*Example 4*/
+
+.ex4cards{
+    position: absolute;
+    animation-duration:6s;
+    animation-iteration-count: infinite;
+    width: 20%;
+}
+.ex4lines {
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex4-Lines-anim;
+    animation-iteration-count: infinite;
+    width: 20%;
+}
+
+.ex4Gblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex4G-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:62%;left:-8%
+}
+
+.ex4Pblossom{
+    position: absolute;
+    animation-duration:6s;
+    animation-name:ex4P-Blossom-anim;
+    animation-iteration-count: infinite;
+    width: 50%;
+    top:-8%;left:46%
+}
+
+.ex4card1 {animation-name:ex4-Card1-anim;}
+.ex4card2 {animation-name:ex4-Card2-anim;}
+.ex4card3 {animation-name:ex4-Card3-anim;}
+.ex4card4 {animation-name:ex4-Card4-anim;}
+.ex4card5 {animation-name:ex4-Card5-anim;}
+.ex4card6 {animation-name:ex4-Card6-anim;}
+.ex4card7 {animation-name:ex4-Card7-anim;}
+
+
+.ex4line1{top:15%;left:5%;animation-delay:0s}
+.ex4line2{top:15%;left:25%;transform:rotate(180deg);animation-delay:-0.3s}
+.ex4line3{top:15%;left:45%;animation-delay:-0.4s}
+.ex4line4{top:15%;left:65%;transform:scaleY(-1);animation-delay:-0.5s}
+.ex4line5{top:43%;left:5%;transform:scaleX(-1);animation-delay:-0.1s}
+.ex4line6{top:43%;left:25%;animation-delay:-0.2s}
+.ex4line7{top:43%;left:65%;transform:rotate(180deg);animation-delay:-0.6s}
+
+
+
+
+
+.gtext{
+    font-weight:bold;
+    color:#00ff00;
+}
+.ptext{
+    font-weight:bold;
+    color:#ff00ff;
+}
+
+.itext{
+    font-weight:bold;
+    font-style:italic;
+}
+
+.rctext{
+    font-weight:bold;
+    background-color:#600060;
+}
+
+.mptext{
+    font-weight:bold;
+    background-color:#003000;
+}
+.mftext{
+    font-weight:bold;
+    background-color:#006000;
+}
+.fctext{
+    font-weight:bold;
+    background-color:#606000;
+}
+.mdtext{
+    font-weight:bold;
+    background-color:#204060;
+}
+.fjtext{
+    font-weight:bold;
+    color:#ff7070;
+}
+.info{
+    font-size:14px;
+}
+
+
+.players{
+    width:100%;
+}
+
+.construc{
+    position:fixed;
+    color:#602727;
+}
+
+.finalista{
+    width:50%;
+    margin: auto;
+}
+@media only screen and (max-width: 600px){
+    .finalista{
+        width:80%;
+        margin: auto;
+    } 
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+    </style>
+    
+</head>
+
+
+<body>
+
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+ 
+   
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="http://cosas.ar">Inicio</a>
+      <a href="http://cosas.ar/TRONIX" style="background-color: #f1f1f1;color:#111">TRONIX</a>
+      <a href="http://cosas.ar/mapas">Mapas</a>
+    </div>
+ 
+    <button class="w3-button w3-green w3-xlarge" style="position:fixed;" onclick="openNav()">&#9776;</button>
+    
+    <div class="w3-container w3-content">
+        
+        <h1>TRONIX</h1>
+        <hr>
+        <br>
+        <div class="finalista">
+            <a href="https://www.fractaljuegos.com/post/finalistas-llevalo-a-la-mesa-2022" target="_blank">
+                <img src="sello-04.png" style="width:100%;">
+            </a>
+        </div>
+        <p>TRONIX tiene la intención de ser una baraja de cartas abierta que explote la creatividad del usuario y permita el diseño de muchos tipos de juegos diferentes, como quién usa la baraja española para jugar al truco, pero también al chin chón y al solitario.
+        </p>
+        <p> El modo de juego que se describe abajo (llamémosle TRONIX CLASSIC) es sólo uno de los tantos juegos posibles que esperan a ser creados por la comunidad de jugadores y desarrolladores.
+        </p>
+        <p>Siéntase libre de modificar las reglas a su gusto, crear nuevas reglas, probar nuevos modos de juego, e incluso añadir nuevas cartas!
+        </p>
+        
+        <br>
+
+        <h2>TRONIX CLASSIC</h2>
+        
+        <hr>
+        <a href="Reglamento TRONIX.pdf" class="w3-btn w3-green w3-hover-pink">Descargar PDF</a>
+        <a href="Imprimible TRONIX.pdf" class="w3-btn w3-green w3-hover-pink w3-right">Cartas para imprimir</a>
+        <p>El objetivo de cada equipo es formar <span class="rob">CIRCUITOS</span> (figuras cerradas) con las líneas de su color, para llevarse la mayor cantidad de cartas a su mazo de <em class="itext">puntaje</em>, mientras se evita que el equipo contrario haga lo mismo.
+        </p>
+        <div class="ex1container">
+            <img class="ex1cards ex1card1" src="cards/Small-Medium.png">
+            <img class="ex1cards ex1card2" src="cards/Small-Big2-Flip.png">
+            <img class="ex1cards ex1card3" src="cards/Small-Zat.PNG">
+            <img class="ex1cards ex1card4" src="cards/Small-Small-Flip.png">
+            <img class="ex1lines ex1line1" src="cards/SmallGreen.png">
+            <img class="ex1lines ex1line2" src="cards/SmallGreen.png">
+            <img class="ex1lines ex1line3" src="cards/SmallGreen.png">
+            <img class="ex1lines ex1line4" src="cards/SmallGreen.png">
+        </div>  
+        
+    <p>El equipo <span class="gtext">verde</span> trata de formar <span class="rob">CIRCUITOS</span> <span class="gtext">verdes</span>.</p>
+    <p>El equipo <span class="ptext">rosa</span> trata de formar <span class="rob">CIRCUITOS</span> <span class="ptext">rosas</span>.</p>
+    <br>
+    <p style="font-weight:bold">Modo de juego clásico:</p>
+    <p>(2 a 16 jugadores pares, separados en 2 equipos iguales)</p>
+    <p>Cuando sea posible, los jugadores se acomodan de modo que queden dos de cada equipo seguidos:</p>
+    
+    <table>
+        <tr>
+            <td><img src="manual/table4.png" class="players"></td>
+            <td><img src="manual/table8.png" class="players"></td>
+            <td><img src="manual/table6.png" class="players"></td>
+        </tr>
+        <tr class="w3-center">
+            <td><p>4 jugadores</p></td>
+            <td><p>8 jugadores</p></td>
+            <td><p>6 jugadores</p></td>
+        </tr>
+    </table>
+        
+    <p>De esta forma, los equipos pueden planificar más fácilmente sus jugadas.</p>
+    <br>
+    <p>Se mezclan y reparten todas las cartas entre los jugadores.</p>
+    <p>Cualquier jugador coloca una carta en el centro de la mesa y comienza el juego.</p>
+    <p>El juego se divide en dos fases:</p>
+    <br>
+        
+    <h3 class="fctext">1. FASE DE COLOCACIÓN</h3>
+    <p>En su turno, cada jugador <em class="itext">coloca</em> una sola carta en la mesa, tratando de formar un <span class="rob">CIRCUITO</span> de su color, o evitando que el otro equipo haga lo mismo.</p>
+    <strong>>> Para partidas de 2 jugadores, cada uno coloca <em>dos</em> cartas en su turno.</strong>
+    <br>
+    <p>Deben seguirse las <a class="rctext">reglas de conectividad</a>.</p>
+    <br>
+    <p>Si se forma un <span class="rob">CIRCUITO</span>, se puntúa de acuerdo al <a class="mptext">modelo de puntuación <em>básico</em></a>.</p>
+    <br>
+    <p>Cuando todos los jugadores se quedan sin cartas en su mano, pasan al <a class="mdtext">Modo Dios</a>.</p>
+    <br>
+    <h3 class="mdtext">2. MODO DIOS</h3>
+    <p>En su turno, cada jugador <em class="itext">mueve</em> una sola carta en la mesa, tratando de formar un <span class="rob">CIRCUITO</span> de su color, o evitando que el otro equipo haga lo mismo.</p>
+    <strong>>> Para partidas de 2 jugadores, cada uno mueve <em>dos</em> cartas en su turno.</strong>
+    <br>
+    <p>Se puede <em class="itext">mover</em>, <em class="itext">rotar</em> y <em class="itext">voltear</em> cualquier carta de cualquier posición a cualquier posición, siempre y cuando se sigan las <a class="rctext">reglas de conectividad</a>.</p>
+    <p>No se puede mover la última carta movida por alguien.</p>
+    <p>Se puntúa de acuerdo al <a class="mptext">modelo de puntuación <em>básico</em></a>, pero también se puede puntuar de acuerdo al <a class="mftext">modelo de puntuación <em>finalizador</em></a>.</p>
+    
+    <br>
+    <h3 class="fjtext" style="text-align:center">Fin del juego:</h3>
+    <p>Cuando no quedan más cartas en la mesa ni en la mano de cada jugador, el juego termina. El equipo con más cartas en su mazo de <em class="itext">puntaje</em> es el ganador.</p>
+    <br>
+    <h3 class="mptext" style="text-align:center">MODELOS DE PUNTUACIÓN</h3>
+    <br>
+    <h4 class="mptext">Modelo de puntuación <em>básico</em></h4>
+    <p>Al completarse un <span class="rob">CIRCUITO</span> de cualquier tamaño o forma, las cartas que lo componen se retiran de la mesa y se guardan en el mazo de <em class="itext">puntaje</em> de cada equipo.</p>
+        <table>
+        <tr>
+            <td>
+                <div class="ex2container">
+                <img class="ex2Gblossom" src="green blossom.png">
+                <img class="ex2cards ex2Gcard1" src="cards/Long-Medium2.PNG">
+                <img class="ex2cards ex2Gcard2" src="cards/Big-Hori.PNG">
+                <img class="ex2cards ex2Gcard3" src="cards/Small-Small.PNG">
+                <img class="ex2cards ex2Gcard4" src="cards/Medium-Zit.PNG">
+                <img class="ex2lines ex2line1" src="cards/LongGreen.png">
+                <img class="ex2lines ex2line2" src="cards/BigGreen.png">
+                <img class="ex2lines ex2line3" src="cards/SmallGreen.png">
+                <img class="ex2lines ex2line4" src="cards/MediumGreen.png">
+                </div>
+            </td>
+            <td>
+                <div class="ex2container">
+                <img class="ex2Pblossom" src="pink blossom.png">
+                <img class="ex2cards ex2Pcard1" src="cards/Medium-Long2.PNG">
+                <img class="ex2cards ex2Pcard2" src="cards/Hori-Big.PNG">
+                <img class="ex2cards ex2Pcard3" src="cards/Small-Small.PNG">
+                <img class="ex2cards ex2Pcard4" src="cards/Zit-Medium.PNG">
+                <img class="ex2lines ex2line1" src="cards/LongPink.png">
+                <img class="ex2lines ex2line2" src="cards/BigPink.png">
+                <img class="ex2lines ex2line3" src="cards/SmallPink.png">
+                <img class="ex2lines ex2line4" src="cards/MediumPink.png">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="w3-container"><p class="info"><span class="rob">CIRCUITO</span> completamente <span class="gtext">verde</span>.<br>
+El equipo <span class="gtext">verde</span> se lleva los cuatro puntos</p></td>
+            <td class="w3-container"><p class="info"><span class="rob">CIRCUITO</span> completamente <span class="ptext">rosa</span>.<br>
+El equipo <span class="ptext">rosa</span> se lleva los cuatro puntos</p></td>
+        </tr>
+    </table>
+    <p>Aveces nos faltan cartas para completar un circuito de nuestro color. Está bien usar algunas líneas del color contrario para completarlo, a cambio de darles esos puntos:</p>
+        <table>
+        <tr>
+            <td>
+                <div class="ex3container">
+                <img class="ex3GAblossom" src="green blossom.png">
+                <img class="ex3PAblossom" src="pink blossom.png">
+                <img class="ex3Acards ex3Acard1" src="cards/Small-Medium.png">
+                <img class="ex3Acards ex3Acard2" src="cards/Zat-Small.PNG">
+                <img class="ex3Acards ex3Acard3" src="cards/Medium-Big.PNG">
+                <img class="ex3Acards ex3Acard4" src="cards/Medium-Zit.PNG">
+                <img class="ex3Alines ex3Aline1" src="cards/SmallGreen.png">
+                <img class="ex3Alines ex3Aline2" src="cards/SmallPink.png">
+                <img class="ex3Alines ex3Aline3" src="cards/MediumGreen.png">
+                <img class="ex3Alines ex3Aline4" src="cards/MediumGreen.png">
+                </div>
+            </td>
+            <td>
+                <div class="ex3container">
+                <!--<img style="position:absolute;width:45%;left:20%" src="manual/5g1p.png">-->
+                    <img class="ex3GBblossom" src="green blossom.png">
+                    <img class="ex3PBblossom" src="pink blossom.png">
+                    <img class="ex3Bcards ex3Bcard1" src="cards/Small-Big2.png">
+                    <img class="ex3Bcards ex3Bcard2" src="cards/Long-Big.PNG">
+                    <img class="ex3Bcards ex3Bcard3" src="cards/Zit-Medium.PNG">
+                    <img class="ex3Bcards ex3Bcard4" src="cards/Vert-Long.PNG">
+                    <img class="ex3Bcards ex3Bcard5" src="cards/Small-Zit.PNG">
+                    <img class="ex3Bcards ex3Bcard6" src="cards/Small-Zat.PNG">
+                    <img class="ex3Blines ex3Bline1" src="cards/BigPink.png">
+                    <img class="ex3Blines ex3Bline2" src="cards/LongGreen.png">
+                    <img class="ex3Blines ex3Bline3" src="cards/ZitGreen.png">
+                    <img class="ex3Blines ex3Bline4" src="cards/VertGreen.png">
+                    <img class="ex3Blines ex3Bline5" src="cards/SmallGreen.png">
+                    <img class="ex3Blines ex3Bline6" src="cards/SmallGreen.png">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="w3-container">
+                <p class="info"><span class="rob">CIRCUITO</span> con 4 cartas <span class="gtext">verdes</span> y 1 <span class="ptext">rosa</span>.<br>
+El equipo <span class="gtext">verde</span> se lleva 3 puntos, el <span class="ptext">rosa</span> 1.</p>
+            </td>
+            <td class="w3-container">
+                <p class="info"><span class="rob">CIRCUITO</span> con 5 cartas <span class="gtext">verdes</span> y 1 <span class="ptext">rosa</span>.<br>
+El equipo <span class="gtext">verde</span> se lleva 5 puntos, el <span class="ptext">rosa</span> 1.</p>
+            </td>
+        </tr>
+    </table>
+    <p>Es decir, las cartas se reparten siempre al equipo correspondiente al color, sin importar quién haya armado la figura.</p>
+    <br>
+    <h4 class="mftext">Modelo de puntuación <em>finalizador</em></h4>
+    <p>Sólo en el <a class="mdtext">Modo Dios</a>, los jugadores tienen la oportunidad de formar un <span class="rob">TRONIX</span>, que es una línea que une <em class="itext">todas</em> las cartas de la mesa. Ésto generalmente es necesario cuando quedan menos de 7 cartas, ya que empieza a dificultarse armar <span class="rob">CIRCUITOS</span>.</p>
+    <div class="ex4container">
+        <img class="ex4Gblossom" src="green blossom.png">
+        <img class="ex4Pblossom" src="pink blossom.png">
+        <img class="ex4cards ex4card1" src="cards/Zit-Small-Flip.png">
+        <img class="ex4cards ex4card2" src="cards/Vert-Long.PNG">
+        <img class="ex4cards ex4card3" src="cards/Hori-Big.PNG">
+        <img class="ex4cards ex4card4" src="cards/Big-Hori.PNG">
+        <img class="ex4cards ex4card5" src="cards/Small-Big2.png">
+        <img class="ex4cards ex4card6" src="cards/Medium-Zit.PNG">
+        <img class="ex4cards ex4card7" src="cards/Vert-Big.PNG">
+        <img class="ex4lines ex4line1" src="cards/ZitGreen.png">
+        <img class="ex4lines ex4line2" src="cards/LongPink.png">
+        <img class="ex4lines ex4line3" src="cards/HoriGreen.png">
+        <img class="ex4lines ex4line4" src="cards/BigGreen.png">
+        <img class="ex4lines ex4line5" src="cards/SmallGreen.png">
+        <img class="ex4lines ex4line6" src="cards/MediumGreen.png">
+        <img class="ex4lines ex4line7" src="cards/VertGreen.png">
+    </div>
+    <span><p class="info"><span class="rob">TRONIX</span> con 6 cartas <span class="gtext">verdes</span> y 1 <span class="ptext">rosa</span>.<br>
+El equipo <span class="gtext">verde</span> se lleva 6 puntos, el <span class="ptext">rosa</span> 1.</p></span>
+    <p>Se puntúa de la misma forma, sólo que es necesario usar la <em class="itext">totalidad</em> de las cartas de la mesa. Es decir, cuando ocurre un <span class="rob">TRONIX</span>, automáticamente ocurre el <span class="fjtext" >fin del juego</span>.</p>
+    <br>
+    <h3 class="rctext" style="text-align:center">REGLAS DE CONECTIVIDAD</h3>
+    <br>
+    <p>Las cartas se conectan siempre por <em class="itext">al menos</em> una línea, sin importar el color, y se posicionan siempre en la misma orientación y alineamiento:</p>
+    <img src="manual/how.png" style="width:75%">
+    
+    <br>
+    
+    <p>Aclaraciones:</p>
+    <ul>
+        <li>No está permitido pasar el turno.</li>
+        <li>No está permitido compartir cartas entre jugadores.</li>
+        <li>Intercambiar dos cartas entre sí no constituye un movimiento.</li>
+        <li>Está permitido girar o voltear una carta sobre sí misma sin moverla de su lugar</li>
+        <li>Está permitido que queden <em>islas</em> cuando se recogen cartas de la mesa, es decir, conjuntos de cartas separados del resto.</li>
+        <li>Si queda una sola carta en la mesa al terminar el juego, se considera una <span class="rob">SINGULARIDAD</span>, se descarta y ocurre el <span class="fjtext">fin del juego</span>.</li>
+        <li>Si una misma carta incluye sus dos colores en el mismo <span class="rob">CIRCUITO</span> o <span class="rob">TRONIX</span>, ninguno de los dos jugadores se lleva la carta, y queda en la mesa al recogerse el resto.</li>
+    </ul>
+    
+    
+    
+    
+    
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+
+  $('img[alt="www.000webhost.com"]').remove();
+
+});
+
+
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+}
+
+</script>
+</body>
+</html>
