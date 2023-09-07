@@ -93,91 +93,6 @@ class Ball {
     }
 }
 
-class BlackBall {
-    constructor(radius, color) {
-        this.x = 600//this.getRandomPosition(this.radius, canvas.width - this.radius);
-        this.y = 700//this.getRandomPosition(this.radius, canvas.height - this.radius);
-        this.active = true;
-        this.radius = radius;
-        this.color = color;
-        this.speedX = 0;
-        this.speedY = 0;
-        this.gravity = 0.5;
-        this.bounceFactor = 0.7;
-        this.minAnimFactor = 0.8;
-        this.maxAnimFactor = 1.3;
-        this.animationSpeed = 0.05; // Adjust this value to control animation speed
-        this.time = 0; // Initialize time
-        this.animFactor = 1
-    }
-
-    getRandomPosition(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-    animate() {
-        this.time += this.animationSpeed;
-        // Use a sine function to create a smoother animation
-        this.animFactor = this.minAnimFactor + (Math.sin(this.time) * 0.5 + 0.5) * (this.maxAnimFactor - this.minAnimFactor);
-    }
-    
-    update() {
-        this.speedY += this.gravity;
-
-        // Store the current position before potential collision adjustments
-        const oldX = this.x;
-        const oldY = this.y;
-
-        // Update position based on speed
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        // Collision checks and adjustments
-        if (this.x < this.radius) {
-            this.speedX = Math.abs(this.speedX) * this.bounceFactor;
-            this.x = this.radius;
-        }
-        if (this.x > canvas.width - this.radius) {
-            this.speedX = -Math.abs(this.speedX) * this.bounceFactor;
-            this.x = canvas.width - this.radius;
-        }
-
-        if (this.y < this.radius) {
-            this.speedY = Math.abs(this.speedY) * this.bounceFactor;
-            this.y = this.radius;
-        }
-        if (this.y > canvas.height - this.radius) {
-            this.speedY = -Math.abs(this.speedY) * this.bounceFactor;
-            this.y = canvas.height - this.radius;
-        }
-
-        // If the ball got stuck at the wall, restore the old position
-        if ((this.x === oldX && this.speedX !== 0) || (this.y === oldY && this.speedY !== 0)) {
-            this.x = oldX;
-            this.y = oldY;
-        }
-    }
-
-
-    respawn() {
-        this.active = true;
-        this.x = this.getRandomPosition(this.radius, canvas.width - this.radius);
-        this.y = this.getRandomPosition(this.radius, canvas.height - this.radius);
-    }
-
-    draw() {
-        if (this.active) {
-            const circle = new createjs.Shape();
-            circle.graphics.beginFill("#111111").drawCircle(this.x, this.y, this.radius*1.8*this.animFactor);
-            circle.graphics.beginFill("#222222").drawCircle(this.x, this.y, this.radius*1.5*this.animFactor);
-            circle.graphics.beginFill("#666666").drawCircle(this.x, this.y, this.radius*this.animFactor);
-            circle.graphics.beginFill(this.color).drawCircle(this.x, this.y, this.radius/2);
-            stage.addChild(circle);
-        }
-    }
-
-}
-
 window.addEventListener("resize", handleResize);
 
 
@@ -197,34 +112,10 @@ function handleResize() {
     stage.update();
 }
 
-function graduallyDisappear(elementId, duration) {
-    const element = document.getElementById(elementId);
-    let currentOpacity = 1;
-    const fadeInterval = 50; // Adjust the interval for smoother or faster fading
-  
-    const fadeOut = setInterval(() => {
-      currentOpacity -= (fadeInterval / duration);
-  
-      if (currentOpacity <= 0) {
-        clearInterval(fadeOut); // Stop the fading animation
-        element.style.opacity = 0; // Ensure opacity is set to 0
-        element.style.display = 'none'; // Hide the element
-      } else {
-        element.style.opacity = currentOpacity;
-      }
-    }, fadeInterval);
-  }
-
 
 // Initialize the game
 const player1 = new Ball(canvas.width / 2 + 20, canvas.height / 2, 18, white);
 const player2 = new Ball(canvas.width / 2 - 20, canvas.height / 2, 20, white);
-const blackBall = new BlackBall(30, white);
-
-player1Score = 0
-player2Score = 0
-
-playingMode = false
 
 const controlsArrows = {
     keys: {},
@@ -292,42 +183,9 @@ createjs.Ticker.on("tick", function () {
     player1.update();
     player2.update();
 
-    if (blackBall.active) {
-        const distance1 = Math.sqrt((player1.x - blackBall.x) ** 2 + (player1.y - blackBall.y) ** 2);
-        const distance2 = Math.sqrt((player2.x - blackBall.x) ** 2 + (player2.y - blackBall.y) ** 2);
-
-        if (distance1 <= player1.radius + blackBall.radius) {
-            blackBall.respawn();
-            player1Score++
-        }
-
-        if (distance2 <= player2.radius + blackBall.radius) {
-            blackBall.respawn();
-            player2Score++
-        }
-    }
-
-    if(player2Score>=5 && !playingMode){
-        graduallyDisappear('webpage', 2000);
-        playingMode = true
-    }
-
-
-
-
     stage.removeAllChildren();
-    blackBall.animate();
-    blackBall.draw();
     player1.draw();
     player2.draw();
-
-    if(playingMode){
-        score = new createjs.Text(player2Score,"72px Arial","#888888")
-        score.x = canvas.width / 2
-        score.y = canvas.height /2
-        stage.addChild(score)
-    }
-
 
     stage.update();
 });
