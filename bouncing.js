@@ -95,8 +95,8 @@ class Ball {
 
 class BlackBall {
     constructor(radius, color) {
-        this.x = 600//this.getRandomPosition(this.radius, canvas.width - this.radius);
-        this.y = 700//this.getRandomPosition(this.radius, canvas.height - this.radius);
+        this.x = this.getRandomPosition(radius, canvas.width - radius);
+        this.y = this.getRandomPosition(radius, canvas.height - radius);
         this.active = true;
         this.radius = radius;
         this.color = color;
@@ -226,6 +226,8 @@ player2Score = 0
 
 playingMode = false
 
+debug = true
+
 const controlsArrows = {
     keys: {},
     left: 37,
@@ -248,22 +250,26 @@ let touchStartY = 0;
 let touchCurrentX = 0;
 let touchCurrentY = 0;
 
+var touchdown = false;
+var deltaX = 0
+var deltaY = 0
 
 canvas.addEventListener("touchstart", function (event) {
     touchStartX = event.touches[0].clientX;
     touchStartY = event.touches[0].clientY;
+    touchCurrentX = event.touches[0].clientX;
+    touchCurrentY = event.touches[0].clientY;
+    touchdown = true
 });
 
 canvas.addEventListener("touchmove", function (event) {
     touchCurrentX = event.touches[0].clientX;
     touchCurrentY = event.touches[0].clientY;
 
-    const deltaX = touchCurrentX - touchStartX;
-    const deltaY = touchCurrentY - touchStartY;
+    deltaX = (touchCurrentX - touchStartX) * 0.01;
+    deltaY = (touchCurrentY - touchStartY) * 0.01;
 
-    // Adjust speed based on touch drag
-    player1.speedX = player1.speedX + deltaX / 10; // You can adjust the sensitivity by changing the divisor
-    player1.speedY = player1.speedY + deltaY / 10; // You can adjust the sensitivity by changing the divisor
+
 
     //touchStartX = touchCurrentX;
     //touchStartY = touchCurrentY;
@@ -272,6 +278,7 @@ canvas.addEventListener("touchmove", function (event) {
 canvas.addEventListener("touchend", function () {
     //player1.speedX = 0;
     //player1.speedY = 0;
+    touchdown = false
 });
 
 window.addEventListener("keydown", function (event) {
@@ -288,6 +295,17 @@ createjs.Ticker.framerate = 60;
 createjs.Ticker.on("tick", function () {
     player1.controls(controlsArrows);
     player2.controls(controlsWASD);
+
+
+    if(deltaX >= 1){
+        deltaX = 1
+    }
+    if(touchdown){
+        // Adjust speed based on touch drag
+        console.log(deltaX)
+        player2.speedX = player2.speedX + deltaX; // You can adjust the sensitivity by changing the divisor
+        player2.speedY = player2.speedY + deltaY; // You can adjust the sensitivity by changing the divisor
+    }
 
     player1.update();
     player2.update();
@@ -312,9 +330,6 @@ createjs.Ticker.on("tick", function () {
         playingMode = true
     }
 
-
-
-
     stage.removeAllChildren();
     blackBall.animate();
     blackBall.draw();
@@ -328,6 +343,20 @@ createjs.Ticker.on("tick", function () {
         stage.addChild(score)
     }
 
+    if(debug){
+    // Create a Graphics object to define the line's properties
+    var graphics = new createjs.Graphics().setStrokeStyle(2).beginStroke("#FF0000");
+
+    // Define the line's starting and ending points
+    graphics.moveTo(touchStartX, touchStartY);
+    graphics.lineTo(touchCurrentX, touchCurrentY);
+
+    // Create a Shape object to display the line
+    var line = new createjs.Shape(graphics);
+
+    // Add the line to the stage
+    stage.addChild(line);
+    }
 
     stage.update();
 });
