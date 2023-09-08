@@ -34,6 +34,7 @@ class Ball {
         this.bounceFactor = 0.7;
         this.animationSpeed = 0.05; // Adjust this value to control animation speed
         this.time = 0;
+        this.animFactor = 0;
     }
 
     animate(min, max) {
@@ -81,14 +82,17 @@ class Ball {
 
     draw() {
         const circle = new createjs.Shape();
+        if(this.animFactor<1){
+            this.animFactor += 0.05
+        }
         if(playMode=="2P"){
-            circle.graphics.beginFill(this.color).drawCircle(this.x, this.y, this.radius*2*this.animate(0.9, 1.1));
+            circle.graphics.beginFill(this.color).drawCircle(this.x, this.y, this.radius*2*this.animate(0.9, 1.1)*this.animFactor);
             this.time += this.animationSpeed;
             if (this.time >= Math.PI * 2){
                 this.time=0
             }
         }
-        circle.graphics.beginFill("#FFFFFF").drawCircle(this.x, this.y, this.radius*this.animate(1.1, 0.9));
+        circle.graphics.beginFill("#FFFFFF").drawCircle(this.x, this.y, this.radius*this.animate(1.1, 0.9)*this.animFactor);
         stage.addChild(circle);
     }
 
@@ -123,7 +127,8 @@ class BlackBall {
         this.bounceFactor = 0.7;
         this.animationSpeed = 0.05; // Adjust this value to control animation speed
         this.time = 0; // Initialize time
-        this.animFactor = 1
+
+        this.animFactor = 0
     }
 
     getRandomPosition(min, max) {
@@ -176,17 +181,21 @@ class BlackBall {
 
     respawn() {
         this.active = true;
+        this.animFactor = 0
         this.x = this.getRandomPosition(this.radius, canvas.width - this.radius);
         this.y = this.getRandomPosition(this.radius, canvas.height - this.radius);
     }
 
     draw() {
         if (this.active) {
+            if(this.animFactor<1){
+                this.animFactor += 0.05
+            }
             const circle = new createjs.Shape();
-            circle.graphics.beginFill("#111111").drawCircle(this.x, this.y, this.radius*1.8*this.animate(0.8, 1.5));
-            circle.graphics.beginFill("#222222").drawCircle(this.x, this.y, this.radius*1.5*this.animate(0.8, 1.3));
-            circle.graphics.beginFill("#666666").drawCircle(this.x, this.y, this.radius*this.animate(0.8, 1.2));
-            circle.graphics.beginFill(this.color).drawCircle(this.x, this.y, (this.radius/2)*this.animate(1.1, 0.9));
+            circle.graphics.beginFill("#111111").drawCircle(this.x, this.y, this.radius*1.8*this.animate(0.8, 1.5)*this.animFactor);
+            circle.graphics.beginFill("#222222").drawCircle(this.x, this.y, this.radius*1.5*this.animate(0.8, 1.3)*this.animFactor);
+            circle.graphics.beginFill("#666666").drawCircle(this.x, this.y, this.radius*this.animate(0.8, 1.2)*this.animFactor);
+            circle.graphics.beginFill(this.color).drawCircle(this.x, this.y, (this.radius/2)*this.animate(1.1, 0.9)*this.animFactor);
             stage.addChild(circle);
             this.time += this.animationSpeed;
             if (this.time >= Math.PI * 2){
@@ -195,6 +204,24 @@ class BlackBall {
         }
     }
 
+}
+
+class ScoreBar{
+    constructor(){
+        this.x = canvas.width / 2;
+        this.y = 20;
+        this.redSide = 0.5
+        this.blueSide = 0.5
+        this.pos = 0
+
+    }
+    draw(p1_score,p2_score){
+        const p1scoreBar = new createjs.Shape()
+        const p2scoreBar = new createjs.Shape()
+        p1scoreBar.graphics.beginFill("#880000").drawRect(this.x,this.y,canvas.width/2,10)
+        p2scoreBar.graphics.beginFill("#000088").drawRect(0,this.y,canvas.width/2,10)
+        stage.addChild(p1scoreBar);
+    }
 }
 
 window.addEventListener("resize", handleResize);
@@ -241,10 +268,16 @@ const player1 = new Ball(canvas.width / 4 +canvas.width / 2, canvas.height / 2, 
 const player2 = new Ball(canvas.width / 4, canvas.height / 2, 20, blue);
 const blackBall = new BlackBall(30, white);
 
+const scoreBar = new ScoreBar()
+
 player1Score = 0
 player2Score = 0
 
+var p1_score_color = "#444444"
+var p2_score_color = "#444444"
+
 playingMode = false
+
 
 debug = true
 
@@ -317,8 +350,14 @@ createjs.Ticker.on("tick", function () {
     player2.controls(controlsArrows);
 
 
-    if (playMode == "1P" && controlsArrows.keys[controlsArrows.left]||controlsArrows.keys[controlsArrows.right]||controlsArrows.keys[controlsArrows.up]||controlsArrows.keys[controlsArrows.down]){
+    if (playMode == "1P" && (controlsArrows.keys[controlsArrows.left]||
+                             controlsArrows.keys[controlsArrows.right]||
+                             controlsArrows.keys[controlsArrows.up]||
+                             controlsArrows.keys[controlsArrows.down])){
         playMode = "2P"
+        newPlayerEntered = true
+        player1Score = 0
+        player2Score = 0
     }
 
     if(deltaX >= 1){
@@ -353,7 +392,7 @@ createjs.Ticker.on("tick", function () {
         }
     }
 
-    if(player1Score>=5 && !playingMode){
+    if((player1Score>=5 || player2Score>=5) && !playingMode){
         graduallyDisappear('webpage', 2000);
         playingMode = true
     }
@@ -361,21 +400,40 @@ createjs.Ticker.on("tick", function () {
     stage.removeAllChildren();
 
     if(playingMode){
-        score = new createjs.Text(player1Score,"172px Arial","#444444")
-        score.x = canvas.width / 2
-        score.y = canvas.height /2
-        score.textAlign = "center"
-        score.textBaseline = "middle"
-        stage.addChild(score)
+        p1_score = new createjs.Text(player1Score,"172px Arial",p1_score_color)
+        if(playMode=="2P"){
+            p1_score_color = "#443333"
+            p2_score_color = "#333344"
+            p2_score = new createjs.Text(player2Score,"172px Arial",p2_score_color)
+            p1_score.x = canvas.width / 4
+            p1_score.y = canvas.height /2
+            p2_score.x = canvas.width / 2 + canvas.width / 4
+            p2_score.y = canvas.height /2
+            p2_score.textAlign = "center"
+            p2_score.textBaseline = "middle"
+            stage.addChild(p2_score)
+
+            scoreBar.draw(p1_score,p2_score)
+        }
+        else{
+            p1_score.x = canvas.width / 2
+            p1_score.y = canvas.height /2
+        }
+        p1_score.textAlign = "center"
+        p1_score.textBaseline = "middle"
+        
+        stage.addChild(p1_score)
     }
 
 
     //blackBall.animate(0.8,1.3);
     blackBall.draw();
     player1.draw();
+
     if(playMode=="2P"){
         player2.draw();
     }
+    
     if(debug){
         // Create a Graphics object to define the line's properties
         var graphics = new createjs.Graphics().setStrokeStyle(2).beginStroke("#FF0000");
@@ -390,6 +448,5 @@ createjs.Ticker.on("tick", function () {
         // Add the line to the stage
         stage.addChild(line);
     }
-
     stage.update();
 });
