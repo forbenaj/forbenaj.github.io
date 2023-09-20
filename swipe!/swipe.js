@@ -48,6 +48,35 @@ class Circle{
         this.accY *= this.friction
     }
 }
+
+class Spaceship{
+    constructor(x,y){
+        this.x = x;
+        this.y = y;
+        this.velX = 0
+        this.velY = 0
+        this.accX = 0
+        this.accY = 0
+        this.friction = 0.92
+        this.image = new Image()
+        this.image.src = "ship.png"
+        this.rotation = 0; // Rotation angle in radians
+        this.scale = 0.1; // Scale factor
+    }
+
+    draw(){
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        ctx.scale(this.scale, this.scale);
+        ctx.drawImage(this.image, -this.image.width / 2, -this.image.height / 2);
+        ctx.restore();
+    }
+
+    update(){
+    }
+}
+
 class Star{
     constructor(x,y,radius,color,layer){
         this.x = x;
@@ -105,26 +134,32 @@ let stars1 = []
 let stars2 = []
 let stars3 = []
 
-for(i=0;i<=10;i++){
+for (i = 0; i <= 20; i++) {
+    randX1 = Math.random() * canvas.width;
+    randY1 = Math.random() * canvas.height;
 
-    randX1 = Math.random()*canvas.width
-    randY1 = Math.random()*canvas.height
-    randX2 = Math.random()*canvas.width
-    randY2 = Math.random()*canvas.height
-    randX3 = Math.random()*canvas.width
-    randY3 = Math.random()*canvas.height
-
-    newStar1 = new Star(randX1, randY1,2,"#ffffff",0.25)
-    newStar2 = new Star(randX2, randY2,4,"#ffffff",0.5)
-    newStar3 = new Star(randX3, randY3,8,"#ffffff",1)
-
-    stars1.push(newStar1)
-    stars2.push(newStar2)
-    stars3.push(newStar3)
-
+    newStar1 = new Star(randX1, randY1, 2, "#ffffff", 0.25);
+    stars1.push(newStar1);
 }
 
-let star = new Circle(canvas.width/2, canvas.height/2,20,"#ffffff")
+for (i = 0; i <= 10; i++) {
+    randX2 = Math.random() * canvas.width;
+    randY2 = Math.random() * canvas.height;
+
+    newStar2 = new Star(randX2, randY2, 4, "#ffffff", 0.5);
+    stars2.push(newStar2);
+}
+
+for (i = 0; i <= 5; i++) {
+    randX3 = Math.random() * canvas.width;
+    randY3 = Math.random() * canvas.height;
+
+    newStar3 = new Star(randX3, randY3, 6, "#ffffff", 1);
+    stars3.push(newStar3);
+}
+
+
+let spaceship = new Spaceship(canvas.width/2, canvas.height/2)
 
 
 // Define the touch objects
@@ -170,7 +205,7 @@ canvas.addEventListener("mousedown", (e) => {
 
 
 addEventListener("mousemove", (event)=>{
-    
+    event.preventDefault();
     if(isMouseDown){
         startX = lastX;
         startY = lastY;
@@ -212,6 +247,9 @@ function update(){
         star.update()
     })
 
+    spaceship.rotation = -Math.atan2(stars1[0].velX,stars1[0].velY)
+
+    spaceship.draw()
     deltaX *= 0.98
     deltaY *= 0.98
 
