@@ -91,7 +91,7 @@ class Star{
 
     draw(){
         ctx.beginPath();
-        ctx.rect(this.x,this.y,this.radius,this.radius)
+        ctx.rect(this.x,this.y,this.radius*sizeController,this.radius)
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.closePath();
@@ -126,10 +126,18 @@ class Star{
             this.x = Math.random()*canvas.width
         }
 
+        let deltaCenterX = this.x - canvas.width/2
+        let deltaCenterY = this.y - canvas.height/2
+
+        this.x = canvas.width/2+deltaCenterX*sizeController
+        this.y = canvas.height/2+deltaCenterY*sizeController
+        
     }
 }
 
-let maxNumStars = 20 // Max number per layer (smaller/further layer)
+var sizeController = 1
+
+let maxNumStars = 250 // Max number per layer (smaller/further layer)
 
 let minNumStars = 5 // Min number per layer (bigger/closer layer)
 
@@ -137,7 +145,7 @@ let minStarSize = 2
 
 let maxStarSize = 6
 
-let layers = 3
+let layers = 30
 
 let bit = (maxNumStars - minNumStars)/(layers-1)
 
@@ -204,7 +212,32 @@ let isMouseDown = false;
 
 canvas.addEventListener("mousedown", (e) => {
     isMouseDown = true;
+    if (e.button === 1) {
+      const previousState = sizeController;
+      const targetState = 1;
+      const duration = 1000; // 1 second
+  
+      const startTime = Date.now();
+  
+      function updateSizeController() {
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - startTime;
+  
+        if (elapsedTime >= duration) {
+          sizeController = targetState;
+          return;
+        }
+  
+        const progress = elapsedTime / duration;
+        sizeController = previousState + progress * (targetState - previousState);
+  
+        requestAnimationFrame(updateSizeController);
+      }
+  
+      requestAnimationFrame(updateSizeController);
+    }
   });
+  
 
 
 addEventListener("mousemove", (event)=>{
@@ -233,6 +266,35 @@ canvas.addEventListener("mouseup", () => {
     }
 })
 
+
+canvas.addEventListener('wheel', (event) => {
+  event.preventDefault();
+
+  if(event.deltaY > 0){
+    console.log("down")
+    sizeController=0.99
+  }
+  else{
+    console.log("up")
+    sizeController=1.01
+  }
+});
+
+canvas.addEventListener('wheel', (event) => {
+  event.preventDefault();
+
+  if(event.deltaY > 0){
+    console.log("down")
+    sizeController=0.99
+  }
+  else{
+    console.log("up")
+    sizeController=1.01
+  }
+});
+
+
+
 // Begin loop
 function update(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -256,6 +318,7 @@ function update(){
             star.update()
         })
     })
+    //sizeController=1
 
     //spaceship.rotation = -Math.atan2(stars1[0].velX,stars1[0].velY)
 
