@@ -62,12 +62,11 @@ class Spaceship{
         this.image.src = "ship.png"
         this.rotation = 0; // Rotation angle in radians
         this.scale = 0.1; // Scale factor
-        this.color = "red"
     }
 
     draw(){
         ctx.save();
-        ctx.translate(canvas.width/2,canvas.height/2);
+        ctx.translate(this.x, this.y);
         ctx.rotate(this.rotation);
         ctx.scale(this.scale, this.scale);
         ctx.drawImage(this.image, -this.image.width / 2, -this.image.height / 2);
@@ -75,16 +74,6 @@ class Spaceship{
     }
 
     update(){
-
-        this.velX += deltaX*0.1
-        this.velY += deltaY*0.1
-
-
-        this.x -= this.velX
-        this.y -= this.velY
-
-        this.velX *= this.friction
-        this.velY *= this.friction
     }
 }
 
@@ -102,7 +91,7 @@ class Star{
 
     draw(){
         ctx.beginPath();
-        ctx.rect(this.x,this.y,this.radius,this.radius)
+        ctx.rect(this.x,this.y,this.radius*sizeController,this.radius)
         ctx.fillStyle = this.color;
         ctx.fill();
         ctx.closePath();
@@ -137,104 +126,18 @@ class Star{
             this.x = Math.random()*canvas.width
         }
 
-    }
-}
-class Planet{
-    constructor(x,y,radius,color){
-        this.x= x
-        this.y= y
-        this.velX = 0
-        this.velY = 0
-        this.radius=radius;
-        this.color=color;
-        this.friction = 0.92
-    }
+        let deltaCenterX = this.x - canvas.width/2
+        let deltaCenterY = this.y - canvas.height/2
 
-    draw(){
-        ctx.beginPath();
-        ctx.rect(this.x-camera.x,this.y-camera.y,this.radius,this.radius)
-        ctx.fillStyle = this.color;
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    update(){
-
-    }
-}
-
-class Camera {
-    constructor(x,y){
-        this.x = x
-        this.y = y
-    }
-
-    update(){
-
-        this.x = spaceship.x
-        this.y = spaceship.y
-
-
-    }
-}
-class Minimap {
-    constructor(){
-        this.weight
-        this.x
-        this.y
-        this.w
-        this.h
-        this.indicator
-
-    }
-    drawMap(){
-    
-        this.weight = (canvas.width + canvas.height)/2
-
-        this.x = canvas.width -this.weight/3.5
-        this.y = canvas.height -this.weight/3.5
-    
-        this.w = this.weight/4
-        this.h = this.weight/4
-
-        ctx.beginPath();
-        ctx.strokeStyle = "grey";
-                
-        // Set the stroke width
-        ctx.lineWidth = 2;
+        this.x = canvas.width/2+deltaCenterX*sizeController
+        this.y = canvas.height/2+deltaCenterY*sizeController
         
-        // Draw the empty rectangle
-        ctx.strokeRect(this.x, this.y, this.w, this.h);
-        ctx.closePath();
-
-    }
-    drawIndicator(obj){
-    
-        
-        this.indicator = {
-            x: (this.w/world.width)*obj.x+this.x,
-            y: (this.h/world.height)*obj.y+this.y,
-            color: obj.color
-        }
-    
-        ctx.beginPath();
-        ctx.rect(this.indicator.x,this.indicator.y,5,5)
-        ctx.fillStyle = this.indicator.color;
-        ctx.fill();
-        ctx.closePath();
-
     }
 }
 
-let minimap = new Minimap()
+var sizeController = 1
 
-var world = {width:100000,height:100000}
-
-var camera = new Camera(world.width/2,world.height/2)
-
-let planet = new Planet(50200,50120,20,"#fba4ff")
-
-let maxNumStars = 20 // Max number per layer (smaller/further layer)
+let maxNumStars = 250 // Max number per layer (smaller/further layer)
 
 let minNumStars = 5 // Min number per layer (bigger/closer layer)
 
@@ -242,7 +145,7 @@ let minStarSize = 2
 
 let maxStarSize = 6
 
-let layers = 3
+let layers = 30
 
 let bit = (maxNumStars - minNumStars)/(layers-1)
 
@@ -267,7 +170,7 @@ for(i = 0; i < layers; i++){
 }
 
 
-let spaceship = new Spaceship(50000, 50000)
+let spaceship = new Spaceship(canvas.width/2, canvas.height/2)
 
 
 // Define the touch objects
@@ -309,7 +212,32 @@ let isMouseDown = false;
 
 canvas.addEventListener("mousedown", (e) => {
     isMouseDown = true;
+    if (e.button === 1) {
+      const previousState = sizeController;
+      const targetState = 1;
+      const duration = 1000; // 1 second
+  
+      const startTime = Date.now();
+  
+      function updateSizeController() {
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - startTime;
+  
+        if (elapsedTime >= duration) {
+          sizeController = targetState;
+          return;
+        }
+  
+        const progress = elapsedTime / duration;
+        sizeController = previousState + progress * (targetState - previousState);
+  
+        requestAnimationFrame(updateSizeController);
+      }
+  
+      requestAnimationFrame(updateSizeController);
+    }
   });
+  
 
 
 addEventListener("mousemove", (event)=>{
@@ -338,11 +266,51 @@ canvas.addEventListener("mouseup", () => {
     }
 })
 
+
+canvas.addEventListener('wheel', (event) => {
+  event.preventDefault();
+
+  if(event.deltaY > 0){
+    console.log("down")
+    sizeController=0.99
+  }
+  else{
+    console.log("up")
+    sizeController=1.01
+  }
+});
+
+canvas.addEventListener('wheel', (event) => {
+  event.preventDefault();
+
+  if(event.deltaY > 0){
+    console.log("down")
+    sizeController=0.99
+  }
+  else{
+    console.log("up")
+    sizeController=1.01
+  }
+});
+
+
+
 // Begin loop
 function update(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    //camera.update()
+    /*stars1.forEach(star =>{
+        star.draw()
+        star.update()
+    })
+    stars2.forEach(star =>{
+        star.draw()
+        star.update()
+    })
+    stars3.forEach(star =>{
+        star.draw()
+        star.update()
+    })*/
 
     stars.forEach(layer=>{
         layer.forEach(star=>{
@@ -350,22 +318,11 @@ function update(){
             star.update()
         })
     })
+    //sizeController=1
 
-    camera.update()
-    spaceship.rotation = -Math.atan2(stars[0][0].velX,stars[0][0].velY)
+    //spaceship.rotation = -Math.atan2(stars1[0].velX,stars1[0].velY)
 
-    spaceship.update()
-    spaceship.draw()
-
-    planet.update()
-    planet.draw()
-
-    minimap.drawMap()
-
-    minimap.drawIndicator(spaceship)
-    minimap.drawIndicator(planet)
-    
-
+    //spaceship.draw()
     deltaX *= 0.98
     deltaY *= 0.98
 
