@@ -53,6 +53,8 @@ class Spaceship{
     constructor(x,y){
         this.x = x;
         this.y = y;
+        this.screenX
+        this.screenY
         this.velX = 0
         this.velY = 0
         this.accX = 0
@@ -67,7 +69,7 @@ class Spaceship{
 
     draw(){
         ctx.save();
-        ctx.translate(canvas.width/2,canvas.height/2);
+        ctx.translate(this.screenX,this.screenY);
         ctx.rotate(this.rotation);
         ctx.scale(this.scale, this.scale);
         ctx.drawImage(this.image, -this.image.width / 2, -this.image.height / 2);
@@ -75,6 +77,9 @@ class Spaceship{
     }
 
     update(){
+
+        this.screenX = this.x - camera.x
+        this.screenY = this.y - camera.y
 
         this.velX += deltaX*0.1
         this.velY += deltaY*0.1
@@ -92,6 +97,8 @@ class Star{
     constructor(x,y,radius,color,speedMultiplier){
         this.x = x;
         this.y = y;
+        this.screenX
+        this.screenY
         this.velX = 0
         this.velY = 0
         this.radius=radius;
@@ -111,14 +118,14 @@ class Star{
     update(){
 
 
-        this.velX += deltaX*0.1*this.speedMultiplier
+        /*this.velX += deltaX*0.1*this.speedMultiplier
         this.velY += deltaY*0.1*this.speedMultiplier
 
         this.x += this.velX
         this.y += this.velY
 
         this.velX *= this.friction
-        this.velY *= this.friction
+        this.velY *= this.friction*/
 
         if(this.x < 0){
             this.x = canvas.width
@@ -147,7 +154,6 @@ class Planet{
         this.velY = 0
         this.radius=radius;
         this.color=color;
-        this.friction = 0.92
     }
 
     draw(){
@@ -167,14 +173,20 @@ class Camera {
     constructor(x,y){
         this.x = x
         this.y = y
+        this.easing = 0.1; // Adjust this value to control the smoothness (lower values are smoother)
     }
 
-    update(){
+    follow(target) {
+        /*// Calculate the desired camera position centered on the target
+        const targetX = target.x - canvas.width / 2;
+        const targetY = target.y - canvas.height / 2;
 
-        this.x = spaceship.x
-        this.y = spaceship.y
-
-
+        // Use easing to smoothly interpolate towards the target position
+        this.x += (targetX - this.x) * this.easing;
+        this.y += (targetY - this.y) * this.easing;
+*/
+        this.x = target.x
+        this.y = target.y
     }
 }
 class Minimap {
@@ -230,7 +242,7 @@ let minimap = new Minimap()
 
 var world = {width:100000,height:100000}
 
-var camera = new Camera(world.width/2,world.height/2)
+var camera = new Camera(world.width/2-canvas.width/2,world.height/2-canvas.height/2)
 
 let planet = new Planet(50200,50120,20,"#fba4ff")
 
@@ -351,8 +363,9 @@ function update(){
         })
     })
 
-    camera.update()
-    spaceship.rotation = -Math.atan2(stars[0][0].velX,stars[0][0].velY)
+    camera.follow(spaceship)
+    
+    spaceship.rotation = -Math.atan2(spaceship.velX,spaceship.velY)
 
     spaceship.update()
     spaceship.draw()
