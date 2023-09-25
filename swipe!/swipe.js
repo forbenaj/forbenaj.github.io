@@ -185,8 +185,8 @@ class Camera {
         this.x += (targetX - this.x) * this.easing;
         this.y += (targetY - this.y) * this.easing;
 */
-        this.x = target.x
-        this.y = target.y
+        this.x = target.x-canvas.width/2
+        this.y = target.y-canvas.height/2
     }
 }
 class Minimap {
@@ -238,6 +238,93 @@ class Minimap {
     }
 }
 
+
+class Starsystem{
+    constructor(maxStars=20,minStars=5,minSize=2,maxSize=6,layers=3){
+
+        this.maxNumStars = maxStars // Max number per layer (smaller/further layer)
+
+        this.minNumStars = minStars // Min number per layer (bigger/closer layer)
+
+        this.minStarSize = minSize
+
+        this.maxStarSize = maxSize
+
+        this.layers = layers
+
+        this.bit = (this.maxNumStars - this.minNumStars)/(this.layers-1)
+
+
+        this.stars = []
+    }
+
+    setup(){
+
+        //let screenX = camera.x-world.width/2
+        //let screenY = camera.y-world.height/2
+
+        for(i = 0; i < this.layers; i++){
+
+            let newLayer = []
+            let numStars = this.maxNumStars-this.bit*i // The number of stars on this layer
+            let starSize = (this.maxStarSize/this.layers)*i+this.minStarSize
+
+            for(j = 0;j < numStars; j++){
+            
+                let scrX  = Math.random() * canvas.width;
+                let scrY = Math.random() * canvas.height;
+
+            
+                let currentStar = {screenX:scrX, screenY:scrY, size:starSize};
+                newLayer.push(currentStar);
+            }
+            this.stars.push(newLayer)
+        }
+    }
+
+    draw(star){
+
+        //let cameraOffsetX = camera.x-world.width/2+canvas.width/2 // Camera offset to center X
+        //let cameraOffsetY = camera.y-world.height/2+canvas.height/2 // Camera offset to center Y
+
+
+        ctx.beginPath();
+        ctx.rect(
+            star.screenX,
+            star.screenY,
+            star.size,star.size)
+        ctx.fillStyle = "#ffffff";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    update(star){
+        let sm = star.size/this.maxStarSize // Speed multiplier depending on layer
+
+        star.screenX += spaceship.velX*sm
+        star.screenY += spaceship.velY*sm
+
+        if(star.screenX < 0){
+            star.screenX = canvas.width
+            star.screenY = (Math.random()*canvas.height)
+        }
+        if(star.screenX > canvas.width){
+            star.screenX = 0
+            star.screenY = (Math.random()*canvas.height)
+        }
+        if(star.screenY < 0){
+            star.screenY = canvas.height
+            star.screenX = (Math.random()*canvas.width)
+        }
+        if(star.screenY > canvas.height){
+            star.screenY = 0
+            star.screenX = (Math.random()*canvas.width)
+        }
+
+    }
+
+}
+
 let minimap = new Minimap()
 
 var world = {width:100000,height:100000}
@@ -258,6 +345,7 @@ let layers = 3
 
 let bit = (maxNumStars - minNumStars)/(layers-1)
 
+let starsystem = new Starsystem(20,5,2,6,3)
 
 let stars = []
 
@@ -350,16 +438,37 @@ canvas.addEventListener("mouseup", () => {
     }
 })
 
+starsystem.setup()
+
+
+
+
+function printToGame(text){
+    ctx.font = "30px Arial";
+
+    // Set the text color
+    ctx.fillStyle = "#ff0fff";
+    
+    // Position and text to draw
+    var x = 30;
+    var y = 50;
+    
+    // Use fillText to draw the text on the canvas
+    ctx.fillText(text, x, y);
+}
+
+
+
 // Begin loop
 function update(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     //camera.update()
 
-    stars.forEach(layer=>{
+    starsystem.stars.forEach(layer=>{
         layer.forEach(star=>{
-            star.draw()
-            star.update()
+            starsystem.update(star)
+            starsystem.draw(star)
         })
     })
 
@@ -381,7 +490,7 @@ function update(){
 
     deltaX *= 0.98
     deltaY *= 0.98
-
+    printToGame(starsystem.stars[0][0].screenX)
     requestAnimationFrame(update);
 }
 update();
