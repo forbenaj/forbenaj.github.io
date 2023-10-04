@@ -299,7 +299,7 @@ class ScoreBoard{
     }
 }
 
-window.addEventListener("resize", handleResize);
+//window.addEventListener("resize", handleResize);
 
 
 
@@ -316,7 +316,7 @@ window.addEventListener("resize", handleResize);
 */
 
 // Function to handle window resize
-function handleResize() {
+/*function handleResize() {
     var canvasContainer = document.getElementById("canvasContainer");
     var canvas = canvasContainer.querySelector("canvas");
     canvas.width = canvasContainer.offsetWidth;
@@ -328,7 +328,7 @@ function handleResize() {
     shape.x = canvas.width / 2;
     shape.y = canvas.height / 2;
     stage.update();
-}
+}*/
 
 function graduallyDisappear(elementId, duration) {
     const element = document.getElementById(elementId);
