@@ -407,8 +407,8 @@ const controls ={
 var pressedKeys = {}
 
 // Initialize the game
-const player1 = new Player(canvas.width / 4 +canvas.width / 2, canvas.height / 2, 30, red, controls.WASD,1);
-const player2 = new Player(canvas.width / 4, canvas.height / 2, 30, blue,controls.Arrows,2);
+const player1 = new Player(canvas.width / 4 +canvas.width / 2, canvas.height / 2, 25, red, controls.WASD,1);
+const player2 = new Player(canvas.width / 4, canvas.height / 2, 25, blue,controls.Arrows,2);
 const blackBall = new Orb(30, white);
 
 const scoreBoard = new ScoreBoard()
