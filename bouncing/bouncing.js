@@ -17,8 +17,8 @@ var stage = new createjs.Stage(canvas);
 // Colors
 const white = "#FFFFFF";
 const black = "#000000";
-const blue = "#000022";
-const red = "#220000";
+const blue = "#000044";
+const red = "#440000";
 
 const gray1 = "#111111";
 const gray2 = "#222222";
@@ -299,9 +299,6 @@ class ScoreBoard{
     }
 }
 
-//window.addEventListener("resize", handleResize);
-
-
 
 
 
@@ -315,20 +312,6 @@ class ScoreBoard{
       █        ████  █    █  ████    █   █  ████  █    █  ████  
 */
 
-// Function to handle window resize
-/*function handleResize() {
-    var canvasContainer = document.getElementById("canvasContainer");
-    var canvas = canvasContainer.querySelector("canvas");
-    canvas.width = canvasContainer.offsetWidth;
-    canvas.height = canvasContainer.offsetHeight;
-
-    // Redraw or reposition your content as needed
-    var stage = new createjs.Stage(canvas);
-    var shape = stage.getChildAt(0); // Assuming the red circle is the first child
-    shape.x = canvas.width / 2;
-    shape.y = canvas.height / 2;
-    stage.update();
-}*/
 
 function graduallyDisappear(elementId, duration) {
     const element = document.getElementById(elementId);
@@ -399,9 +382,9 @@ var isPlaying = false
 
 debug = true
 
-const winAudio1 = new Audio("win1.mp3")
-const winAudio2 = new Audio("win2.mp3")
-const catchSounds = ["waw.mp3","wow.mp3"]
+const winAudio1 = new Audio("bouncing/win1.mp3")
+const winAudio2 = new Audio("bouncing/win2.mp3")
+const catchSounds = ["bouncing/waw.mp3","bouncing/wow.mp3"]
 
 // Touch control variables
 let touchStartX = 0;
