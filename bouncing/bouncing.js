@@ -299,9 +299,6 @@ class ScoreBoard{
     }
 }
 
-//window.addEventListener("resize", handleResize);
-
-
 
 
 
@@ -315,20 +312,6 @@ class ScoreBoard{
       █        ████  █    █  ████    █   █  ████  █    █  ████  
 */
 
-// Function to handle window resize
-/*function handleResize() {
-    var canvasContainer = document.getElementById("canvasContainer");
-    var canvas = canvasContainer.querySelector("canvas");
-    canvas.width = canvasContainer.offsetWidth;
-    canvas.height = canvasContainer.offsetHeight;
-
-    // Redraw or reposition your content as needed
-    var stage = new createjs.Stage(canvas);
-    var shape = stage.getChildAt(0); // Assuming the red circle is the first child
-    shape.x = canvas.width / 2;
-    shape.y = canvas.height / 2;
-    stage.update();
-}*/
 
 function graduallyDisappear(elementId, duration) {
     const element = document.getElementById(elementId);
