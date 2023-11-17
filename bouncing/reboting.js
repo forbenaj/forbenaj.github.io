@@ -17,7 +17,7 @@ var stage = new createjs.Stage(canvas);
 // Colors
 const white = "#FFFFFF";
 const black = "#000000";
-const blue = "#00FF00";
+const blue = "#00ff00";
 const red = "#FF00FF";
 
 const gray1 = "#111111";
@@ -108,6 +108,11 @@ class Player {
 
     controls() {
         if(this.alive){
+            if(this.controlKeys.type=="Gamepad"){
+                this.speedX+=this.controlKeys.x
+                this.speedY+=this.controlKeys.y
+            }
+            else{
             if (pressedKeys[this.controlKeys.left]) {
                 this.speedX -= 1;
             }
@@ -119,7 +124,7 @@ class Player {
             }
             if (pressedKeys[this.controlKeys.down]) {
                 this.speedY += 1;
-            }
+            }}
         }
     }
 }
@@ -401,6 +406,15 @@ const controls ={
         right: "KeyD",
         up: "KeyW",
         down: "KeyS"
+    },
+    Joystick : {
+        type: "Gamepad",
+        x:0,
+        y:0,
+        left: 0,
+        right: 0,
+        up: 0,
+        down: 0
     }
 }
 
@@ -470,6 +484,28 @@ window.addEventListener("keyup", function (event) {
 });
 
 
+
+if (navigator.getGamepads) {
+    // Initialize the gamepad state
+    var gamepadState = {};
+
+}
+
+function updateGamepadState() {
+    const gamepads = navigator.getGamepads();
+
+    for (const gamepad of gamepads) {
+      if (gamepad) {
+        // Store the state of each button
+        gamepadState[gamepad.index] = {
+          axes: gamepad.axes.slice(),
+          buttons: gamepad.buttons.map(button => button.value),
+        };
+      }
+    }
+
+  }
+
 var players = [player1,player2]
 
 let timeScale = 0.7
@@ -509,12 +545,13 @@ let timeScale = 0.7
 
 
 
-
-
 createjs.Ticker.framerate = 60;
 createjs.Ticker.on("tick", function (event) {
     const delta = (event.delta/16.67) * timeScale;
     stage.removeAllChildren();
+
+
+    updateGamepadState()
     //blackBall.update(delta);
     blackBall.draw()
 
@@ -560,6 +597,36 @@ createjs.Ticker.on("tick", function (event) {
 
 
 
+
+
+    for (const [index, state] of Object.entries(gamepadState)) {
+        controls.Joystick.x = (state.axes[0]) + (state.buttons[14]*-1) + (state.buttons[15])
+        controls.Joystick.y = state.axes[1]*1.7 + (state.buttons[12]*-1) + (state.buttons[13])
+        controls.Joystick.up = state.buttons[13]
+        controls.Joystick.down = state.buttons[14]
+        controls.Joystick.left = state.buttons[15]
+        controls.Joystick.right = state.buttons[16]
+        onScreenConsole("x: "+state.axes[0]+"\ny: "+state.axes[1]+"\n"+state.buttons)
+    }
+
+    
+
+
     stage.update();
  
 });
+
+
+
+
+
+
+
+function onScreenConsole(e){
+    var scoreText = new createjs.Text(e,"24px Arial","#f0fff0")
+
+    scoreText.x = canvas.width / 8
+    scoreText.y = canvas.height /8
+    
+    stage.addChild(scoreText)
+}
