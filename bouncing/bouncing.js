@@ -17,8 +17,8 @@ var stage = new createjs.Stage(canvas);
 // Colors
 const white = "#FFFFFF";
 const black = "#000000";
-const blue = "#000022";
-const red = "#220000";
+const blue = "#000044";
+const red = "#440000";
 
 const gray1 = "#111111";
 const gray2 = "#222222";
@@ -399,9 +399,9 @@ var isPlaying = false
 
 debug = true
 
-const winAudio1 = new Audio("win1.mp3")
-const winAudio2 = new Audio("win2.mp3")
-const catchSounds = ["waw.mp3","wow.mp3"]
+const winAudio1 = new Audio("bouncing/win1.mp3")
+const winAudio2 = new Audio("bouncing/win2.mp3")
+const catchSounds = ["bouncing/waw.mp3","bouncing/wow.mp3"]
 
 // Touch control variables
 let touchStartX = 0;
