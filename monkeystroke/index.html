@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Monkey Theorem Checker!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        /* Remove margins from "page content" on small screens */
+        @media only screen and (max-width: 600px){
+            #main {
+                margin-left: 0
+            }
+            .w3-content{
+                max-width:100%
+            }
+            
+            .w3-display-middle {
+                position: absolute;
+                top: 20%;
+                left: 20%;
+                transform: translate(-15%, -20%);
+             }
+             
+             
+        }
+        
+        .w3-content{
+            max-width:50%;
+            text-align: center;
+        }    
+
+        .options{
+            text-align:left;
+        }
+        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+        #main {
+            margin-left: 120px
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        #text-input {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #time-result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="w3-container w3-content">
+        <h1>Infinite Monkey Theorem Checker!</h1>
+        <h3>Calculate the time required for our monkey to type the provided text</h3>
+        <br><br>
+
+        <div class="w3-container options">
+            <label>
+            <input type="radio" name="typingSpeed" value="300">
+            Charachorder One (300 wpm)
+            </label>
+            <br>
+        
+            <label>
+            <input type="radio" name="typingSpeed" value="212">
+            Barbara Blackburn (212 wpm)
+            </label>
+            <br>
+        
+            <label>
+            <input type="radio" name="typingSpeed" value="100">
+            Nerd (100 wpm)
+            </label>
+            <br>
+        
+            <label>
+            <input type="radio" name="typingSpeed" value="40" checked>
+            Average Person (40 wpm)
+            </label>
+            <br>
+        
+            <label>
+            <input type="radio" name="typingSpeed" value="Custom">
+            Custom:
+            <input type="number" name="customSpeed" id="customSpeedInput" placeholder="Enter WPM">
+            </label>
+            <br>
+            <label for="ignore-punctuation">
+                <input type="checkbox" id="ignore-punctuation" checked> Ignore Punctuation
+            </label>
+        </div>
+
+        <br><br>
+
+        <textarea id="text-input" cols="30" rows="10" placeholder="Type or paste your text here"></textarea>
+        
+
+        <button onclick="calculateTime()">Check Time</button>
+
+        <p id="time-result" hidden>It will take <span id="time">-</span> to complete the provided text</p>
+    </div>
+
+    <script>
+        function calculateTime() {
+            var selectedValue = getSelectedValue();
+            var ignorePunctuation = document.getElementById("ignore-punctuation").checked
+            var timeResultLabel = document.getElementById("time-result")
+            var timeResult = document.getElementById("time")
+            var wordsPerMinute;
+            var charactersPerSecond;
+            var inputString = document.getElementById("text-input").value;
+            var text;
+            var regex;
+            var pool;
+            var timeInSeconds;
+    
+            if (selectedValue === "Custom") {
+                var customSpeedInput = document.getElementById("customSpeedInput");
+                wordsPerMinute = customSpeedInput.value;
+            }
+            else {
+                wordsPerMinute = selectedValue
+            }
+            charactersPerSecond = (wordsPerMinute*5)/60;
+
+            if (ignorePunctuation){
+                regex = /[^a-zA-Z]/g
+                pool = 26
+            }
+            else{
+                regex = /[^a-zA-Z0-9.,?!'"()\s]/g
+                pool = 44
+            }
+
+            text = inputString.replace(regex, '');
+
+            //timeInSeconds = text.length/charactersPerSecond
+            console.clear()
+            console.log("Pool: "+pool)
+            console.log("Length: "+text.length)
+            console.log("CPS: "+charactersPerSecond)
+            timeInSeconds = (pool**text.length)/charactersPerSecond
+
+            timeResult.innerHTML = formatTime(timeInSeconds)
+            timeResultLabel.removeAttribute("hidden")
+        }
+
+        function getSelectedValue() {
+            var selectedValue;
+
+            // Loop through radio buttons to find the selected one
+            var radioButtons = document.getElementsByName("typingSpeed");
+            for (var i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                selectedValue = radioButtons[i].value;
+                break;
+            }
+            }
+
+            return selectedValue;
+        }
+
+        /*function formatTime(seconds) {
+            var result;
+            if (seconds < 60) {
+                const remainingSeconds = Math.floor(seconds)
+                if(remainingSeconds == 1){
+                    result = remainingSeconds + " second";
+                }
+                else{
+                    result = remainingSeconds + " seconds";
+                }
+            } else if (seconds < 3600) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = Math.floor(seconds % 60);
+                if(minutes == 1){
+                    result = minutes + " minute" + remainingSeconds + " seconds";
+                }
+                else{
+                    result = minutes + " minutes " + remainingSeconds + " seconds";
+                }
+            } else if (seconds < 86400) {
+                const hours = Math.floor(seconds / 3600);
+                const remainingMinutes = Math.floor((seconds % 3600) / 60);
+                if(hours == 1){
+                    result = hours + " hour " + remainingMinutes + " minutes";
+                }
+                else{
+                    result = hours + " hours " + remainingMinutes + " minutes";
+                }
+            } else if (seconds < 2592000) {
+                const days = Math.floor(seconds / 86400);
+                const remainingHours = Math.floor((seconds % 86400) / 3600);
+                if(days == 1){
+                    result = days + " day " + remainingHours + " hours ";
+                }
+                else{
+                    result = days + " days " + remainingHours + " hours ";
+                }
+            } else if (seconds < 31536000) {
+                const months = Math.floor(seconds / 2592000);
+                const remainingDays = Math.floor((seconds % 2592000) / 86400);
+                if(months == 1){
+                    result = months + " month " + remainingDays + " days ";
+                }
+                else{
+                    result = months + " months " + remainingDays + " days ";
+                }
+            } else {
+                const years = Math.floor(seconds / 31536000);
+                const remainingMonths = Math.floor((seconds % 31536000) / 2592000);
+                if(years == 1){
+                    result = years + " year " + remainingMonths + " months ";
+                }
+                else{
+                    result = years + " years " + remainingMonths + " months ";
+                }
+            }
+            return result;
+        }*/
+
+
+
+
+        function formatTime(inputSeconds) {
+            var result;
+            var seconds;
+            var minutes;
+            var hours;
+            var days;
+            var months;
+            var years;
+            if (inputSeconds < 60) {
+                seconds = Math.floor(inputSeconds)
+                if(seconds == 1){
+                    result = seconds + " second";
+                }
+                else{
+                    result = seconds + " seconds";
+                }
+            } else if (inputSeconds < 3600) {
+                minutes = Math.floor(inputSeconds / 60);
+                seconds = Math.floor(inputSeconds % 60);
+                if(minutes == 1){
+                    result = minutes + " minute" + seconds + " seconds";
+                }
+                else{
+                    result = minutes + " minutes " + seconds + " seconds";
+                }
+            } else if (inputSeconds < 86400) {
+                hours = Math.floor(inputSeconds / 3600);
+                minutes = Math.floor((inputSeconds % 3600) / 60);
+                if(hours == 1){
+                    result = hours + " hour " + minutes + " minutes";
+                }
+                else{
+                    result = hours + " hours " + minutes + " minutes";
+                }
+            } else if (inputSeconds < 2592000) {
+                days = Math.floor(inputSeconds / 86400);
+                hours = Math.floor((inputSeconds % 86400) / 3600);
+                if(days == 1){
+                    result = days + " day " + hours + " hours ";
+                }
+                else{
+                    result = days + " days " + hours + " hours ";
+                }
+            } else if (inputSeconds < 31536000) {
+                months = Math.floor(inputSeconds / 2592000);
+                days = Math.floor((inputSeconds % 2592000) / 86400);
+                if(months == 1){
+                    result = months + " month " + days + " days ";
+                }
+                else{
+                    result = months + " months " + days + " days ";
+                }
+            } else {
+                years = Math.floor(inputSeconds / 31536000);
+                months = Math.floor((inputSeconds % 31536000) / 2592000);
+                if(years == 1){
+                    result = years + " year " + months + " months ";
+                }
+                else{
+                    result = years + " years " + months + " months ";
+                }
+            }
+            return result;
+        }
+
+    </script>
+</body>
+</html>
