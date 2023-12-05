@@ -434,9 +434,9 @@ var isPlaying = false
 
 debug = true
 
-const winAudio1 = new Audio("win1.mp3")
-const winAudio2 = new Audio("win2.mp3")
-const catchSounds = ["waw.mp3","wow.mp3"]
+const winAudio1 = new Audio("sound/win1.mp3")
+const winAudio2 = new Audio("sound/win2.mp3")
+const catchSounds = ["sound/waw.mp3","sound/wow.mp3"]
 
 // Touch control variables
 let touchStartX = 0;
