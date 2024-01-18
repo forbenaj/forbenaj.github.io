@@ -35,6 +35,6 @@ def show_popup(title, message):
 
 if __name__ == "__main__":
     
-    zip_url = 'https://cosas.ar/CARNETERO.zip'
+    zip_url = 'https://cosas.ar/CARNETERO/CARNETERO.zip'
 
     download_and_extract_zip(zip_url)
