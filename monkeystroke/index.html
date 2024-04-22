@@ -73,33 +73,33 @@
             <h4>Writing speed:</h4>
             
             <label>
-            <input type="radio" name="typingSpeed" value="300">
+            <input type="radio" name="typingSpeed" value="300" oninput="calculateTime()">
             Charachorder One (300 wpm)
             </label>
             <br>
         
             <label>
-            <input type="radio" name="typingSpeed" value="212">
+            <input type="radio" name="typingSpeed" value="212" oninput="calculateTime()">
             Barbara Blackburn (212 wpm)
             </label>
             <br>
         
             <label>
-            <input type="radio" name="typingSpeed" value="100">
+            <input type="radio" name="typingSpeed" value="100" oninput="calculateTime()">
             Nerd (100 wpm)
             </label>
             <br>
         
             <label>
-            <input type="radio" name="typingSpeed" value="40" checked>
+            <input type="radio" name="typingSpeed" value="40" checked oninput="calculateTime()">
             Average Person (40 wpm)
             </label>
             <br>
         
             <label>
-            <input type="radio" name="typingSpeed" value="Custom">
+            <input type="radio" name="typingSpeed" value="Custom" oninput="calculateTime()">
             Custom:
-            <input type="number" name="customSpeed" id="customSpeedInput" placeholder="Enter WPM">
+            <input type="number" name="customSpeed" id="customSpeedInput" placeholder="Enter WPM" oninput="calculateTime()">
             </label>
             <br>
             
@@ -111,17 +111,13 @@
 
         <br><br>
 
-        <textarea id="text-input" cols="30" rows="10" placeholder="Type or paste your text here"></textarea>
+        <textarea id="text-input" cols="30" rows="10" placeholder="Type or paste your text here" oninput="calculateTime()"></textarea>
         
-
-        <button onclick="calculateTime()">Check Time</button>
-
         <p id="time-result" hidden>It will take <span id="time">-</span> to complete the provided text</p>
     </div>
 
     <script>
         var textInput = document.getElementById("text-input");
-        textInput.addEventListener('input',()=>calculateTime())
         
         var timeResultLabel = document.getElementById("time-result")
         var timeResult = document.getElementById("time")
@@ -164,8 +160,13 @@
             console.log("CPS: "+charactersPerSecond)
             timeInSeconds = (pool**text.length)/charactersPerSecond
 
-            timeResult.innerHTML = formatTime(timeInSeconds)
-            timeResultLabel.removeAttribute("hidden")
+            if(inputString!=""&&wordsPerMinute>0){
+                timeResult.innerHTML = formatTime(timeInSeconds)
+                timeResultLabel.removeAttribute("hidden")
+            }
+            else{
+                timeResultLabel.setAttribute("hidden","")
+            }
         }
 
         function getTypingSpeed() {
@@ -182,67 +183,6 @@
 
             return selectedValue;
         }
-
-        /*function formatTime(seconds) {
-            var result;
-            if (seconds < 60) {
-                const remainingSeconds = Math.floor(seconds)
-                if(remainingSeconds == 1){
-                    result = remainingSeconds + " second";
-                }
-                else{
-                    result = remainingSeconds + " seconds";
-                }
-            } else if (seconds < 3600) {
-                const minutes = Math.floor(seconds / 60);
-                const remainingSeconds = Math.floor(seconds % 60);
-                if(minutes == 1){
-                    result = minutes + " minute" + remainingSeconds + " seconds";
-                }
-                else{
-                    result = minutes + " minutes " + remainingSeconds + " seconds";
-                }
-            } else if (seconds < 86400) {
-                const hours = Math.floor(seconds / 3600);
-                const remainingMinutes = Math.floor((seconds % 3600) / 60);
-                if(hours == 1){
-                    result = hours + " hour " + remainingMinutes + " minutes";
-                }
-                else{
-                    result = hours + " hours " + remainingMinutes + " minutes";
-                }
-            } else if (seconds < 2592000) {
-                const days = Math.floor(seconds / 86400);
-                const remainingHours = Math.floor((seconds % 86400) / 3600);
-                if(days == 1){
-                    result = days + " day " + remainingHours + " hours ";
-                }
-                else{
-                    result = days + " days " + remainingHours + " hours ";
-                }
-            } else if (seconds < 31536000) {
-                const months = Math.floor(seconds / 2592000);
-                const remainingDays = Math.floor((seconds % 2592000) / 86400);
-                if(months == 1){
-                    result = months + " month " + remainingDays + " days ";
-                }
-                else{
-                    result = months + " months " + remainingDays + " days ";
-                }
-            } else {
-                const years = Math.floor(seconds / 31536000);
-                const remainingMonths = Math.floor((seconds % 31536000) / 2592000);
-                if(years == 1){
-                    result = years + " year " + remainingMonths + " months ";
-                }
-                else{
-                    result = years + " years " + remainingMonths + " months ";
-                }
-            }
-            return result;
-        }*/
-
-
 
 
         function formatTime(inputSeconds) {
