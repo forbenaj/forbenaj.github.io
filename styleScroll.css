@@ -1,0 +1,58 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+@keyframes adjust-image {
+    from {
+        zoom: 1;
+        translate: -50% -100% 0;
+    }
+    80% {
+        opacity: 0.10;
+    }
+    to {
+        translate: -50% -60% 0;
+        scale: 3.5;
+        opacity: 0.10;
+        rotate: -6deg;
+    }
+}
+
+header {
+    view-timeline: --header-vtl;
+}
+
+header img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width:250px;
+
+    animation: adjust-image linear both;
+    animation-timeline: --header-vtl;
+    animation-range: exit;
+    z-index: 9999;
+}
+header h1 {
+    padding-top: min(20rem, 60vw);
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        translate: 0 -50% 0;
+        clip-path: inset(100% 100% 0% 0%);
+    }
+    to {
+        opacity: 1;
+        clip-path: inset(0% 0% 0% 0%);
+    }
+}
+
+.card {
+    cursor: pointer;
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+}
