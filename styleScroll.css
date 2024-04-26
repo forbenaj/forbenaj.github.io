@@ -9,7 +9,7 @@ body {
         translate: -50% -100% 0;
     }
     80% {
-        opacity: 0.10;
+        opacity: 1;
     }
     to {
         translate: 500% -50% 0;
@@ -39,30 +39,6 @@ header h1 {
     padding-top: min(20rem, 60vw);
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        translate: 0 -50% 0;
-        clip-path: inset(100% 100% 0% 0%);
-    }
-    to {
-        opacity: 1;
-        clip-path: inset(0% 0% 0% 0%);
-    }
-}
-
-.card {
-    cursor: pointer;
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0% entry 80%;
-}
-
-
-:is(main, header) :is(h1, h2, h3) {
-	font-family: var(--serif);
-}
-
 header {
 	display: grid;
 	place-content: center;
@@ -86,14 +62,31 @@ header h1 em {
 	line-height: 1.2;
 }
 
-#intenPic {
-    animation: intenPic;
+#mainMap {
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    opacity:0;
+    animation: mainMapAppear;
     animation-timeline:scroll();
+    animation-range:20vh 90vh;
+    animation-fill-mode:forwards;
+    z-index: -1;
 }
 
-@keyframes intenPic {
+#mainMap .mainPic{
+    width:100%;
+}
+
+@keyframes mainMapAppear {
     0% {
-        scale:0.1;
+        translate:0vh -10vh;
+        scale:0.3;
         opacity:0;
     }
     100%{
@@ -101,4 +94,89 @@ header h1 em {
         opacity:1;
     }
     
+}
+
+
+#mapLegendContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position:fixed;
+    opacity:0;
+    animation: mapTitles;
+    animation-timeline: scroll();
+    animation-range:20vh 90vh;
+    animation-fill-mode:forwards;
+}
+
+
+@keyframes mapTitles {
+    0% {
+        top:200%;
+        opacity:1;
+    }
+    100%{
+        top:5%;
+        opacity:1;
+    }
+    
+}
+
+#mapLegendContainer .titleContainer {
+    position:absolute;
+    display:flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content:start;
+}
+
+
+#mapLegendContainer a {
+    position:absolute;
+    width:50%;
+    bottom:10%;
+}
+
+.twitter-tweet {
+    position:absolute;
+    left:10%;
+    animation: twitterPostAppear;
+    animation-timeline: scroll();
+    animation-fill-mode:forwards;
+}
+
+#twitter1{
+    animation-range:500vh 600vh;
+}
+#twitter2{
+    animation-range:700vh 800vh;
+}
+#twitter3{
+    animation-range:900vh 1000vh;
+}
+#twitter4{
+    animation-range:11000vh 12000vh;
+}
+#twitter5{
+    animation-range:1300vh 1400vh;
+}
+
+@keyframes twitterPostAppear {
+    0%{
+        top:200%;
+    }
+    30%{
+        top:50%;
+    }
+    70%{
+        top:50%;
+    }
+    100%{
+        top:-100%;
+    }
 }
