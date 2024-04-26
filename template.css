@@ -1,84 +1,84 @@
-        html {
-          scroll-behavior: smooth;
-        }
-        body,h2,h3,h4,h5,h6{
-            font-family: "Montserrat",sans-serif
-        }
-        
-        h1.mapas{
-            font-family: "Syncopate";
-            font-weight:bold;
-            text-align:center;
-            font-size:50;
-        }
-        h2{text-align:center;}
-        
-        .rob{
-            font-family: "Roboto Mono",sans-serif
-        }
-        
-        p,strong,ul{
-            font-size:18px;
-        }
-        
-        .w3-content{
-            max-width:50%;
-            padding-top:52px;
-        }
-        
-        .w3-row-padding img {
-            margin-bottom: 12px
-        }
-        
-        /* Set the width of the sidebar to 120px */
-        .w3-sidebar {
-            width: 120px;background: #222;
-        }
-        
-        /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
-        #main {
-            margin-left: 120px
-        }
-        
-        /* Remove margins from "page content" on small screens */
-        @media only screen and (max-width: 600px){
-            #main {
-                margin-left: 0
-            }
-            .w3-content{
-                max-width:100%
-            }
-            
-            .w3-display-middle {
-                position: absolute;
-                top: 20%;
-                left: 20%;
-                transform: translate(-15%, -20%);
-             }
-             
-             
-             
-            h1{
-                font-size:35;
-            }
-             
-             
-        }
-        
-        body {
-            font-family: "Raleway", sans-serif
-        }
-        
-        body, html {
-            height: 100%
-        }
-        
-        .bgimg {
-          background-color: black;
-          min-height: 100%;
-          background-position: center;
-          background-size: cover
-        }
+html {
+    scroll-behavior: smooth;
+}
+body,h2,h3,h4,h5,h6{
+    font-family: "Montserrat",sans-serif
+}
+
+h1.mapas{
+    font-family: "Syncopate";
+    font-weight:bold;
+    text-align:center;
+    font-size:50;
+}
+h2{text-align:center;}
+
+.rob{
+    font-family: "Roboto Mono",sans-serif
+}
+
+p,strong,ul{
+    font-size:18px;
+}
+
+.w3-content{
+    max-width:50%;
+    padding-top:52px;
+}
+
+.w3-row-padding img {
+    margin-bottom: 12px
+}
+
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {
+    width: 120px;background: #222;
+}
+
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {
+    margin-left: 120px
+}
+
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px){
+    #main {
+        margin-left: 0
+    }
+    .w3-content{
+        max-width:100%
+    }
+    
+    .w3-display-middle {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        transform: translate(-15%, -20%);
+      }
+      
+      
+      
+    h1{
+        font-size:35;
+    }
+      
+      
+}
+
+body {
+    font-family: "Raleway", sans-serif
+}
+
+body, html {
+    height: 100%
+}
+
+.bgimg {
+  background-color: black;
+  min-height: 100%;
+  background-position: center;
+  background-size: cover
+}
 
 
 

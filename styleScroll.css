@@ -12,9 +12,9 @@ body {
         opacity: 0.10;
     }
     to {
-        translate: -50% -60% 0;
-        scale: 3.5;
-        opacity: 0.10;
+        translate: 500% -50% 0;
+        scale: 30;
+        opacity: 0;
         rotate: -6deg;
     }
 }
@@ -24,15 +24,16 @@ header {
 }
 
 header img {
+	display: block;
     position: fixed;
     top: 50%;
     left: 50%;
     width:250px;
+	height: 20rem;
 
     animation: adjust-image linear both;
     animation-timeline: --header-vtl;
     animation-range: exit;
-    z-index: 9999;
 }
 header h1 {
     padding-top: min(20rem, 60vw);
@@ -55,4 +56,49 @@ header h1 {
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0% entry 80%;
+}
+
+
+:is(main, header) :is(h1, h2, h3) {
+	font-family: var(--serif);
+}
+
+header {
+	display: grid;
+	place-content: center;
+	height: 90vh;
+	height: 90dvh;
+	margin-bottom: 10vh;
+	margin-bottom: 10dvh;
+	gap: 2.5vmin;
+}
+header h1 {
+	margin: 0;
+	font-size: 2.5em;
+	text-align: center;
+	line-height: 1;
+	max-width: 80vw;
+}
+header h1 em {
+	display: block;
+	margin-top: 0.5rem;
+	font-size: 0.4em;
+	line-height: 1.2;
+}
+
+#intenPic {
+    animation: intenPic;
+    animation-timeline:scroll();
+}
+
+@keyframes intenPic {
+    0% {
+        scale:0.1;
+        opacity:0;
+    }
+    100%{
+        scale:1;
+        opacity:1;
+    }
+    
 }
