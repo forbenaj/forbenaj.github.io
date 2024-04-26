@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="template.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-	<link rel="stylesheet" href="./Scroll-driven Animations_files/styles(1).css">
     <link rel="stylesheet" href="styleScroll.css">
     
     
@@ -29,139 +28,211 @@
         <p class="w3-large w3-center">de Benaj</p>
 	</header>
     <main>
-        <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div>
+            <img id="intenPic" src="mapas/inten/inten4.png" style="width:100%">
+        </div>
+        
 
-            <a href="http://cosas.ar/mapas/plats" rel="prev"><div class="ant">&#10094;</div></a>
-            <a href="http://cosas.ar/mapas/alberdi" rel="next"><div class="sig">&#10095;</div></a>
-            
-            <button class="w3-button w3-green w3-xlarge" style="position:fixed;" onclick="openNav()">&#9776;</button>   
-            
-            <div class="w3-container w3-content">
+        <a href="http://cosas.ar/mapas/plats" rel="prev"><div class="ant">&#10094;</div></a>
+        <a href="http://cosas.ar/mapas/alberdi" rel="next"><div class="sig">&#10095;</div></a>
+        
+        <button class="w3-button w3-green w3-xlarge" style="position:fixed;" onclick="openNav()">&#9776;</button>   
+        
+        <div class="w3-container w3-content">
 
-                <h1 class="mapas">Plaza de la Intendencia</h1>
-                <h2>Córdoba Capital</h2>
-                <h2>2010</h2>
-                <hr>
-                <br>
-                
-                <a href="#descargas" class="w3-btn w3-block w3-xlarge w3-indigo w3-hover-khaki">Ir a descargas</a>
-               
-                <br>
-                <br>
-                
-                <!-- Container for the image gallery -->
-                <div class="container">
-                
-                    <!-- Full-width images with number text -->
-                    <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
-                        <img src="mapas/inten/inten4.png" style="width:100%">
-                    </div>
-                    
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="mapas/inten/inten3.png" style="width:100%">
-                    </div>
-                    
-                    <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="mapas/inten/inten5.png" style="width:100%">
-                    </div>
-                    
-                    <div class="mySlides">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="mapas/inten/playin2.png" style="width:100%">
-                    </div>
-                    
-                    <div class="mySlides">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="mapas/inten/playin5.png" style="width:100%">
-                    </div>
-                    
-                    <div class="mySlides">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="mapas/inten/inten2.png" style="width:100%">
-                    </div>
-                    
-                    <!-- Next and previous buttons -->
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    
-                    <br>
-                    
-                    <!-- Thumbnail images -->
-                    <div class="row">
-                        <div class="column">
-                        <img class="demo cursor" src="mapas/inten/inten4.png" style="width:100%" onclick="currentSlide(1)">
-                        </div>
-                        <div class="column">
-                        <img class="demo cursor" src="mapas/inten/inten3.png" style="width:100%" onclick="currentSlide(2)">
-                        </div>
-                        <div class="column">
-                        <img class="demo cursor" src="mapas/inten/inten5.png" style="width:100%" onclick="currentSlide(3)">
-                        </div>
-                        <div class="column">
-                        <img class="demo cursor" src="mapas/inten/playin2.png" style="width:100%" onclick="currentSlide(4)">
-                        </div>
-                        <div class="column">
-                        <img class="demo cursor" src="mapas/inten/playin5.png" style="width:100%" onclick="currentSlide(5)">
-                        </div>
-                        <div class="column">
-                        <img class="demo cursor" src="mapas/inten/inten2.png" style="width:100%" onclick="currentSlide(6)">
-                        </div>
-                    </div>
-                </div>
-                    
-                <div>
-                    
-                    <p>Recreación de la Plaza de la Intendencia para Counter-Strike 1.6</p>
-                    <p>Esta es una versión beta final, sin intenciones de continuar el desarrollo. Lamentablemente perdí el RMF original y el mapa no se puede seguir editando.                </p>
-                    
-                </div>     
-                
-                <hr>
-                <br>
+            <h1 class="mapas">Plaza de la Intendencia</h1>
+            <h2>Córdoba Capital</h2>
+            <h2>2010</h2>
+            <hr>
+            <br>
             
-                <br> 
-                <br> 
-                    
-                <div id="descargas">   
-                    <h2>Descargas</h2>
-                    <hr>
-                    <br>
-                    
-                    <div class="instrucciones">
-                        <h4>Instrucciones:</h4>
-                        <p>Descomprimir los archivos en la carpeta raiz del juego.</p>
-                        <p>(Ej: "C:/Program Files (x86)/Counter-Strike 1.6/<strong>cstrike</strong>")</p>
-                        <a href="mapas/inten/inten.rar" class="w3-btn w3-block w3-xlarge w3-green w3-hover-pink" download>Descargar mapa</a>            
-                        <br>
-                        <p>Con ésto debería poder jugarse sin problemas.</p>
-                    </div>
-                
-                    <br>
-                    <br>
-                    <p>Para jugar con bots, la mayoría de las versiones del Counter-Strike 1.6 deberían ser capaces de generar el archivo de navegación en 5 minutos, pero puede descargarse aparte.</p>
-                    <p>Se coloca en la carpeta de mapas, junto con el BSP</p>
-                    <a href="mapas/inten/cs_inten111.nav" class="w3-btn w3-teal w3-hover-pink" download>Descargar NAV</a>
+            <a href="#descargas" class="w3-btn w3-block w3-xlarge w3-indigo w3-hover-khaki">Ir a descargas</a>
+            
+            <br>
+            <br>
+            
+            <!-- Container for the image gallery -->
+            <div class="container">
+            
+                <!-- Full-width images with number text -->
+                <div class="mySlides">
+                    <div class="numbertext">1 / 6</div>
+                    <img src="mapas/inten/inten4.png" style="width:100%">
                 </div>
-                    
+                
+                <div class="mySlides">
+                    <div class="numbertext">2 / 6</div>
+                    <img src="mapas/inten/inten3.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides">
+                    <div class="numbertext">3 / 6</div>
+                    <img src="mapas/inten/inten5.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides">
+                    <div class="numbertext">4 / 6</div>
+                    <img src="mapas/inten/playin2.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides">
+                    <div class="numbertext">5 / 6</div>
+                    <img src="mapas/inten/playin5.png" style="width:100%">
+                </div>
+                
+                <div class="mySlides">
+                    <div class="numbertext">6 / 6</div>
+                    <img src="mapas/inten/inten2.png" style="width:100%">
+                </div>
+                
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                
                 <br>
-                <br> 
-                     
-                <div id="referencias">   
-                    <h2>Referencias</h2>
-                    <hr>
-                    <br>
                 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d848.4400903340512!2d-64.1914255782321!3d-31.417128890565955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2810f7ad5b7%3A0x4df6d839a962b08!2sPlaza%20de%20la%20Intendencia%2C%20H%C3%A9roes%20de%20Malvinas!5e1!3m2!1ses!2sar!4v1665970027571!5m2!1ses!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <br>
-                    <br>
-                    <blockquote class="twitter-tweet" data-theme="dark"><p lang="es" dir="ltr">porque nadie esta hablando de que un culiadaso diseño la plaza de la intendencia para el cs <a href="https://t.co/VwXkiWqjk8">pic.twitter.com/VwXkiWqjk8</a></p>&mdash; 𝐀𝐥𝐞𝐣𝐨 (@alejolucaras) <a href="https://twitter.com/alejolucaras/status/1242943261850898433?ref_src=twsrc%5Etfw">March 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    
+                <!-- Thumbnail images -->
+                <div class="row">
+                    <div class="column">
+                    <img class="demo cursor" src="mapas/inten/inten4.png" style="width:100%" onclick="currentSlide(1)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="mapas/inten/inten3.png" style="width:100%" onclick="currentSlide(2)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="mapas/inten/inten5.png" style="width:100%" onclick="currentSlide(3)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="mapas/inten/playin2.png" style="width:100%" onclick="currentSlide(4)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="mapas/inten/playin5.png" style="width:100%" onclick="currentSlide(5)">
+                    </div>
+                    <div class="column">
+                    <img class="demo cursor" src="mapas/inten/inten2.png" style="width:100%" onclick="currentSlide(6)">
+                    </div>
                 </div>
-                
             </div>
+                
+            <div>
+                
+                <p>Recreación de la Plaza de la Intendencia para Counter-Strike 1.6</p>
+                <p>Esta es una versión beta final, sin intenciones de continuar el desarrollo. Lamentablemente perdí el RMF original y el mapa no se puede seguir editando.                </p>
+                
+            </div>     
+            
+            <hr>
+            <br>
+        
+            <br> 
+            <br> 
+                
+            <div id="descargas">   
+                <h2>Descargas</h2>
+                <hr>
+                <br>
+                
+                <div class="instrucciones">
+                    <h4>Instrucciones:</h4>
+                    <p>Descomprimir los archivos en la carpeta raiz del juego.</p>
+                    <p>(Ej: "C:/Program Files (x86)/Counter-Strike 1.6/<strong>cstrike</strong>")</p>
+                    <a href="mapas/inten/inten.rar" class="w3-btn w3-block w3-xlarge w3-green w3-hover-pink" download>Descargar mapa</a>            
+                    <br>
+                    <p>Con ésto debería poder jugarse sin problemas.</p>
+                </div>
+            
+                <br>
+                <br>
+                <p>Para jugar con bots, la mayoría de las versiones del Counter-Strike 1.6 deberían ser capaces de generar el archivo de navegación en 5 minutos, pero puede descargarse aparte.</p>
+                <p>Se coloca en la carpeta de mapas, junto con el BSP</p>
+                <a href="mapas/inten/cs_inten111.nav" class="w3-btn w3-teal w3-hover-pink" download>Descargar NAV</a>
+            </div>
+                
+            <br>
+            <br> 
+                    
+            <div id="referencias">   
+                <h2>Referencias</h2>
+                <hr>
+                <br>
+            
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d848.4400903340512!2d-64.1914255782321!3d-31.417128890565955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a2810f7ad5b7%3A0x4df6d839a962b08!2sPlaza%20de%20la%20Intendencia%2C%20H%C3%A9roes%20de%20Malvinas!5e1!3m2!1ses!2sar!4v1665970027571!5m2!1ses!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <br>
+                <br>
+                <blockquote class="twitter-tweet" data-theme="dark"><p lang="es" dir="ltr">porque nadie esta hablando de que un culiadaso diseño la plaza de la intendencia para el cs <a href="https://t.co/VwXkiWqjk8">pic.twitter.com/VwXkiWqjk8</a></p>&mdash; 𝐀𝐥𝐞𝐣𝐨 (@alejolucaras) <a href="https://twitter.com/alejolucaras/status/1242943261850898433?ref_src=twsrc%5Etfw">March 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>    
+            </div>
+            
         </div>
 	</main>
+    <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+        function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        }
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling
+
+            
+            if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            }
+                
+            /*var title = this.firstChild;
+            if (title.style.width){
+            title.style.width = 0;
+            } else {
+            title.style.width = 100
+            }
+            */
+        });
+        }
+
+
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        }
+
+    </script>
 </body>
 </html>
