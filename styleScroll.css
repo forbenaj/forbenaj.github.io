@@ -11,11 +11,15 @@ body {
     80% {
         opacity: 1;
     }
-    to {
+    99% {
         translate: 500% -50% 0;
         scale: 30;
         opacity: 0;
         rotate: -6deg;
+        z-index: 1;
+    }
+    to {
+        z-index: -1;
     }
 }
 
@@ -79,19 +83,66 @@ header h1 em {
     z-index: -1;
 }
 
-#mainMap .mainPic{
-    width:100%;
-}
-
 @keyframes mainMapAppear {
     0% {
         translate:0vh -10vh;
-        scale:0.3;
+        scale:0.4;
         opacity:0;
     }
     100%{
         scale:1;
         opacity:1;
+    }
+    
+}
+
+#mainMapPic{
+    height: 100%;
+    width: 100%;
+    background-image: url("mapas/inten/inten3.png");
+    background-size: cover;
+    background-position: center;
+}
+#mainMapPic.playing{
+    animation: changeBackground 30s infinite ;
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url("mapas/inten/inten3.png");
+    }
+    16% {
+        background-image: url("mapas/inten/inten3.png");
+    }
+    19% {
+        background-image: url("mapas/inten/inten4.png");
+    }
+    32% {
+        background-image: url("mapas/inten/inten4.png");
+    }
+    35% {
+        background-image: url("mapas/inten/inten5.png");
+    }
+    48% {
+        background-image: url("mapas/inten/inten5.png");
+    }
+    51% {
+        background-image: url("mapas/inten/playin2.png");
+    }
+    64% {
+        background-image: url("mapas/inten/playin2.png");
+    }
+    67% {
+        background-image: url("mapas/inten/playin5.png");
+    }
+    80% {
+        background-image: url("mapas/inten/playin5.png");
+    }
+    83% {
+        background-image: url("mapas/inten/inten2.png");
+    }
+    95% {
+        background-image: url("mapas/inten/inten2.png");
     }
     
 }
@@ -108,7 +159,7 @@ header h1 em {
     opacity:0;
     animation: mapTitles;
     animation-timeline: scroll();
-    animation-range:20vh 90vh;
+    animation-range:90vh 860vh;
     animation-fill-mode:forwards;
 }
 
@@ -118,10 +169,22 @@ header h1 em {
         top:200%;
         opacity:1;
     }
-    100%{
+    5%{
         top:5%;
         opacity:1;
     }
+    65%{
+        top:5%;
+        opacity:1;
+    }100%{top:5%;opacity:1;}/*
+    70%{
+        top:-100%;
+        opacity:1;
+    }
+    100%{
+        top:-100%;
+        opacity:1;
+    }*/
     
 }
 
@@ -136,47 +199,136 @@ header h1 em {
 }
 
 
-#mapLegendContainer a {
+#goToDownloads {
     position:absolute;
     width:50%;
     bottom:10%;
-}
-
-.twitter-tweet {
-    position:absolute;
-    left:10%;
-    animation: twitterPostAppear;
+    background-color: #3f51b5;
+    animation: toDownloads;
     animation-timeline: scroll();
+    animation-range:550vh 600vh;
     animation-fill-mode:forwards;
 }
 
-#twitter1{
-    animation-range:500vh 600vh;
-}
-#twitter2{
-    animation-range:700vh 800vh;
-}
-#twitter3{
-    animation-range:900vh 1000vh;
-}
-#twitter4{
-    animation-range:11000vh 12000vh;
-}
-#twitter5{
-    animation-range:1300vh 1400vh;
-}
 
-@keyframes twitterPostAppear {
+@keyframes toDownloads {
     0%{
-        top:200%;
-    }
-    30%{
-        top:50%;
-    }
-    70%{
-        top:50%;
+        translate: 0% 0%;
+        background-color: #3f51b5;
+        width:50%;
+        opacity:1;
     }
     100%{
-        top:-100%;
+        translate: -100% 0%;
+        background-color: #4CAF50;
+        width:30%;
+        z-index: -1;
     }
+    
+}
+
+#downloadSet {
+    display:flex;
+    flex-direction:row;
+    position:absolute;
+    width:50%;
+    bottom:10%;
+    animation: showDownloadSet;
+    animation-timeline: scroll();
+    animation-range:550vh 600vh;
+    animation-fill-mode:forwards;
+    z-index: -1;
+}
+
+@keyframes showDownloadSet {
+    0%{
+        translate: 0% 0%;
+        z-index: -1;
+    }
+    100%{
+        translate: -50% 0%;
+        z-index: 1;
+    }
+}
+
+#downloadButton {
+    width:100%;
+    background-color: #3f51b5;
+    animation: showDownloadButton;
+    animation-timeline: scroll();
+    animation-range:550vh 600vh;
+    animation-fill-mode:forwards;
+    z-index: -1;
+}
+
+@keyframes showDownloadButton {
+    0%{
+        background-color: #3f51b5;
+        width:100%;
+    }
+    100%{
+        background-color: #4CAF50;
+        width:80%;
+    }
+}
+
+
+#moreInfo {
+    border: none;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+
+
+    font-size: 32px;
+    padding: 0px 0px;
+    width:0%;
+    margin-left:10px;
+    background-color: #2487f8;
+    animation: showMoreInfoButton;
+    animation-timeline: scroll();
+    animation-range:580vh 630vh;
+    animation-fill-mode:forwards;
+    z-index: -1;
+}
+
+@keyframes showMoreInfoButton {
+    0%{
+        width:0%;
+    }
+    100%{
+        width:20%;
+    }
+}
+
+#twitterPosts {
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content:center;
+}
+
+.twitter-tweet{
+    margin:20px;
+    padding-top: 50vh;
+    z-index: 1;
+}
+
+#moreButtons {
+    display:flex;
+    flex-direction:row;
+    justify-content: end;
+}
+
+#moreMaps{
+    width:20%;
+    margin-left:10px;
+    z-index: 2;
+}
+#playOnline{
+    width:20%;
+    margin-left:10px;
+    z-index: 2;
 }
