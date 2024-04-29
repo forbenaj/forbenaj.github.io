@@ -19,6 +19,10 @@ body {
         z-index: 1;
     }
     to {
+        translate: 500% -50% 0;
+        scale: 30;
+        opacity: 0;
+        rotate: -6deg;
         z-index: -1;
     }
 }
@@ -97,7 +101,7 @@ header h1 em {
 }
 
 #mainMapPic{
-    height: 100%;
+    aspect-ratio: auto 4/3;
     width: 100%;
     background-image: url("mapas/inten/inten3.png");
     background-size: cover;
@@ -314,6 +318,17 @@ header h1 em {
     margin:20px;
     padding-top: 50vh;
     z-index: 1;
+}
+
+#descargas {
+    height: 90vh;
+}
+
+#footer {
+    display:flex;
+    flex-direction: column;
+    justify-content: end;
+    height:100%;
 }
 
 #moreButtons {
