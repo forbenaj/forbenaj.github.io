@@ -220,6 +220,10 @@ body, html {
   color: white;
 }
 
+.row{
+  background-color: #000;
+}
+
 .row:after {
   content: "";
   display: table;
@@ -235,11 +239,13 @@ body, html {
 /* Add a transparency effect for thumnbail images */
 .demo {
   opacity: 0.6;
+  transition: transform 0.2s linear, opacity 0.2s linear;
 }
 
 .active,
 .demo:hover {
   opacity: 1;
+  transform:scale(1.1)
 }
 
 .instrucciones{
