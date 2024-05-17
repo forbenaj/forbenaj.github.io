@@ -188,14 +188,17 @@
         function getEstimatedTime(pool,length,speed) {
             let result;
 
-            let prev = pool ** (length*0.5)
-            let preTime = formatTime(prev) // Convert to minutes/hours/days, do it here so i get the conversionr rate
-            let correctedPreTime = preTime**(1/0.5)
-            let correctedNewTime = correctedPreTime**("something something, conversion rate * conversion rate")
+            let originalChances = pool ** length // Remains unused
+
+            let chancesReduced = pool ** (length/5) // Divide the exponent by X to get a smaller result
+            let timeReduced = chancesReduced/2//formatTime(chancesReduced) // Convert to minutes/hours/days, return the conversion rate
+            let correctedTime = timeReduced**5 // time formated, without the division
+            let originalTime = correctedTime*(2**5) // This would get the original, big number. Should remain unused
             
             if(length>180){}
 
             if(length>200){}
+            return {chances:originalChances,chancesReduced:chancesReduced,timeReduced:timeReduced}
         }
 
 
