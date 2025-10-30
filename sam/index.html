@@ -1,0 +1,194 @@
+<html>
+<head>
+    <title>SAM - Benaj</title>
+    <link rel="stylesheet" href="../w3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Syncopate">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h2,h3,h4,h5,h6{font-family:"Montserrat",sans-serif}
+        h1{font-family:"Syncopate";font-weight:bold;text-align:center;font-size:50}
+        p{font-size:18px}
+        .w3-content{max-width:900px}
+        .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+        .card{background:#111;color:#fff;border-radius:6px;overflow:hidden;border:1px solid #333;cursor:pointer}
+        .card img,.card video{display:block;width:100%;height:auto}
+        .card .body{padding:12px}
+        .card.landscape {grid-column: span 2;}
+        body,html{background:#000;color:#fff}
+        a{color:#9cf}
+        /* Lightbox */
+        .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:9999}
+        .lightbox.open{display:flex}
+        .lightbox-content{max-width:90vw;max-height:90vh}
+        .lightbox video,.lightbox img{max-width:90vw;max-height:90vh}
+        .lightbox-close{position:absolute;top:16px;right:20px;font-size:28px;color:#fff;background:transparent;border:none;cursor:pointer}
+        .lightbox-caption{position:absolute;left:0;right:0;bottom:20px;text-align:center;color:#ddd;font-family:"Montserrat",sans-serif}
+    </style>
+</head>
+<body>
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+        <div id="main" class="w3-content w3-padding-32">
+            <h1>SAM</h1>
+            <p class="w3-center w3-margin-bottom">SAM (Smoke and Mirrors) es una consola de videojuegos holográfica, originalmente creada para la <a href="https://www.instagram.com/_ddistopia/">Distopia</a></p>
+
+            <div id="media" class="media-grid"></div>
+
+            <div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+              <button class="lightbox-close" aria-label="Close">✕</button>
+              <div class="lightbox-content"></div>
+              <div class="lightbox-caption"></div>
+            </div>
+
+            <p class="w3-center w3-margin-top">Presentación para la Convocatoria Abierta para la Feria de Artes y Ciencias Cybercirujas en la Noche de los Museos 2025</p>
+
+            <p class="w3-center w3-small"><a href="https://cosas.ar">Volver a Cosas</a></p>
+        </div>
+    </div>
+
+<script>
+const posts = [
+  {
+    file: "testing_2.mp4",
+    title: "El holograma",
+    description: "Se trata de un artefacto mágico-electrónico piramidal capaz de reproducir elementos 3D en forma de holograma.<br>Se usa para jugar jueguitos."
+  },
+  {
+    file: "playing_1.mp4",
+    title: "",
+    description: "Tiene vista tridimensional en 4 ángulos diferentes!"
+  },
+  {
+    file: "SAM_1.jpg",
+    title: "La consola",
+    description: "La estructura está hecha de basura electrónica, y tiene varios artilugios estéticos para distraer del hecho de que es simplemente un monitor con patas."
+  },
+  {
+    file: "testing_1.mp4",
+    title: "Primeras pruebas",
+    description: ""
+  },
+  {
+    file: "SAM_2.jpg",
+    title: "SAM en la distopia",
+    description: ""
+  },
+  {
+    file: "testing_3.mp4",
+    title: "Pruebas de realidad aumentada",
+    description: "Se puede colocar objetos sólidos del mundo real dentro de la pirámide, y los personajes pueden interactuar!<br>(No realmente, es un cubo negro digital ocluyendo el espacio que ocupa el rubik. La magia del cine.)"
+  },
+  {
+    file: "playing_2.mp4",
+    title: "Miauuu",
+    description: ""
+  },
+  {
+    file: "playing_3.mp4",
+    title: "CSP",
+    description: "Agrego un jueguito simple, Cunt Serving Simulator"
+  }
+];
+
+const container = document.getElementById('media');
+
+posts.forEach(post => {
+  const { file, title, description } = post;
+  const isVideo = file.toLowerCase().endsWith('.mp4') || file.toLowerCase().endsWith('.webm');
+  const card = document.createElement('div');
+  card.className = 'card';
+
+  if (isVideo) {
+    const v = document.createElement('video');
+    v.src = `files/${file}`;
+    v.controls = true;
+    v.preload = 'metadata';
+    v.style.background = '#000';
+
+    // Check orientation after metadata is loaded
+    v.addEventListener('loadedmetadata', () => {
+      if (v.videoWidth > v.videoHeight) {
+        card.classList.add('landscape');
+      }
+    });
+
+    v.addEventListener('click', (e)=>{
+      e.preventDefault();
+      openLightbox({type:'video', src: `files/${file}`, title, description});
+    });
+    card.appendChild(v);
+  } else {
+    const img = document.createElement('img');
+    img.src = `files/${file}`;
+    img.alt = title;
+
+    // Check orientation after image loads
+    img.addEventListener('load', () => {
+      if (img.naturalWidth > img.naturalHeight) {
+        card.classList.add('landscape');
+      }
+    });
+    img.addEventListener('click', (e)=>{
+      e.preventDefault();
+      openLightbox({type:'image', src: `files/${file}`, title, description});
+    });
+    card.appendChild(img);
+  }
+
+  const body = document.createElement('div');
+  body.className = 'body';
+  body.innerHTML = `<strong>${title}</strong><br><span>${description}</span>`;
+  card.appendChild(body);
+
+  container.appendChild(card);
+});
+
+// Lightbox behavior
+const lightbox = document.getElementById('lightbox');
+const lbContent = lightbox.querySelector('.lightbox-content');
+const lbCaption = lightbox.querySelector('.lightbox-caption');
+const lbClose = lightbox.querySelector('.lightbox-close');
+
+function openLightbox({type, src, title, description}){
+  lbContent.innerHTML = '';
+  let el;
+  if(type === 'video'){
+    el = document.createElement('video');
+    el.src = src;
+    el.controls = true;
+    el.autoplay = true;
+  } else {
+    el = document.createElement('img');
+    el.src = src;
+    el.alt = title || '';
+  }
+  el.style.maxWidth = '90vw';
+  el.style.maxHeight = '90vh';
+  lbContent.appendChild(el);
+  lbCaption.innerHTML = `<strong>${title||''}</strong><br>${description||''}`;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  lbContent.innerHTML = '';
+  lbCaption.textContent = '';
+  document.body.style.overflow = '';
+}
+
+lbClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e)=>{
+  if(e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
+</script>
+
+</body>
+</html>
